@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Details - VisionCare Ophthalmology & Eye Surgery Center</title>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="alternate icon" href="favicon.ico">
+  <meta name="description" content="Detailed information about VisionCare's eye care services.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
+  <script>
+    tailwind.config = { 
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            'accent': '#008C95',
+            'secondary': '#006B72',
+            'brand-dark': '#000000',
+            'brand-light': '#FFFFFF',
+            'brand-muted': '#4B5563'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    [dir="rtl"] { direction: rtl; }
+    
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in { animation: fadeInUp 0.8s ease-out; }
+
+    /* Active nav underline */
+    .nav-active {
+      color: #008C95 !important;
+    }
+    .nav-active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #008C95;
+    }
+    .dark .nav-active {
+      color: #008C95 !important;
+    }
+    .dark .nav-active::after {
+      background-color: #008C95;
+    }
+
+    /* Loading state */
+    #loading-overlay {
+      position: fixed;
+      inset: 0;
+      background: #FFFFFF;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.3s ease;
+    }
+    .dark #loading-overlay {
+      background: #000000;
+    }
+    #loading-overlay.hidden-overlay {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .spinner {
+      width: 48px;
+      height: 48px;
+      border: 4px solid #E5E7EB;
+      border-top-color: #008C95;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    .dark .spinner {
+      border-color: #374151;
+      border-top-color: #008C95;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body class="font-sans antialiased transition-colors duration-300 bg-brand-light dark:bg-brand-dark flex flex-col min-h-screen">
+
+  <!-- Loading Overlay -->
+  <div id="loading-overlay">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="bg-brand-light dark:bg-brand-dark fixed w-full top-0 z-50 border-b border-gray-200 dark:border-white/10 transition-colors duration-300">
+    <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-[90px]">
+
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+          <a href="index.html" class="flex items-center gap-3 group">
+            <div class="w-10 h-10 bg-brand-dark dark:bg-white rounded-xl flex items-center justify-center shadow-md transition-all duration-300 group-hover:scale-105 group-hover:bg-accent group-hover:shadow-accent/30 shrink-0">
+              <svg class="w-5 h-5 text-accent dark:text-brand-dark group-hover:text-white transition-colors fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+              </svg>
+            </div>
+            <div class="flex flex-col">
+              <span class="text-2xl font-black tracking-tight text-brand-dark dark:text-brand-light uppercase leading-none">Vision<span class="text-accent">Care</span></span>
+              <span class="text-[9px] font-bold tracking-[0.22em] text-accent uppercase mt-1 leading-none">Ophthalmology & Eye Surgery</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Desktop Nav Links -->
+        <div class="hidden xl:flex items-center justify-center flex-1 mx-8">
+          <div class="flex items-center gap-8">
+
+            <!-- Home Dropdown -->
+            <div class="relative group h-[90px] flex items-center">
+              <button class="text-xs uppercase tracking-[0.15em] font-medium text-gray-900 dark:text-gray-100 hover:text-accent transition-colors flex items-center relative py-2">
+                <span>Home</span>
+                <i class="fas fa-chevron-down text-[10px] ms-2 transition-transform duration-300 group-hover:rotate-180"></i>
+                <span class="absolute bottom-0 start-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full"></span>
+              </button>
+              
+              <div class="absolute top-[90px] start-0 w-56 bg-brand-light dark:bg-[#1E293B] border border-t-0 border-gray-200 dark:border-white/10 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0 z-50">
+                <div class="py-4 px-6 flex flex-col gap-4">
+                  <a href="index.html" class="text-sm font-medium text-gray-500 hover:text-accent dark:text-gray-400 dark:hover:text-accent transition-colors">HOME PAGE 01</a>
+                  <a href="home-2.html" class="text-sm font-medium text-gray-500 hover:text-accent dark:text-gray-400 dark:hover:text-accent transition-colors">HOME PAGE 02</a>
+                </div>
+              </div>
+            </div>
+
+            <a href="about.html" class="relative group text-xs uppercase tracking-[0.15em] font-medium text-gray-900 dark:text-gray-100 hover:text-accent transition-colors py-2">
+              About
+              <span class="absolute bottom-0 start-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            
+            <!-- Services (Active) -->
+            <a href="services.html" class="nav-active relative group text-xs uppercase tracking-[0.15em] font-medium text-gray-900 dark:text-gray-100 hover:text-accent transition-colors py-2">
+              Services
+              <span class="absolute bottom-0 start-0 w-full h-[2px] bg-accent transition-all duration-300"></span>
+            </a>
+            
+            <a href="blog.html" class="relative group text-xs uppercase tracking-[0.15em] font-medium text-gray-900 dark:text-gray-100 hover:text-accent transition-colors py-2">
+              Blog
+              <span class="absolute bottom-0 start-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            
+            <a href="contact.html" class="relative group text-xs uppercase tracking-[0.15em] font-medium text-gray-900 dark:text-gray-100 hover:text-accent transition-colors py-2">
+              Contact
+              <span class="absolute bottom-0 start-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full"></span>
+            </a>
+
+            <!-- Dashboard Dropdown -->
+            <div class="relative group h-[90px] flex items-center">
+              <button class="text-xs uppercase tracking-[0.15em] font-medium text-gray-900 dark:text-gray-100 hover:text-accent transition-colors flex items-center relative py-2">
+                <span>Dashboard</span>
+                <i class="fas fa-chevron-down text-[10px] ms-2 transition-transform duration-300 group-hover:rotate-180"></i>
+                <span class="absolute bottom-0 start-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full"></span>
+              </button>
+              
+              <div class="absolute top-[90px] end-0 w-64 bg-brand-light dark:bg-[#1E293B] border border-t-0 border-gray-200 dark:border-white/10 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0 z-50">
+                <div class="py-4 px-6 flex flex-col gap-5">
+                  <a href="admin-dashboard.html" class="flex items-center text-sm font-medium text-gray-500 hover:text-accent dark:text-gray-400 dark:hover:text-accent transition-colors">Admin Dashboard</a>
+                  <a href="client-dashboard.html" class="flex items-center text-sm font-medium text-gray-500 hover:text-accent dark:text-gray-400 dark:hover:text-accent transition-colors">Client Dashboard</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right side actions -->
+        <div class="hidden xl:flex items-center gap-4">
+          
+          <button id="theme-toggle" class="relative w-[72px] h-[34px] flex items-center bg-gray-200 dark:bg-[#1E293B] rounded-full p-1 transition-colors duration-300 focus:outline-none border border-gray-300 dark:border-gray-700 overflow-hidden" title="Toggle Theme">
+            <span class="text-[9px] font-medium text-gray-500 absolute end-2.5 dark:opacity-0 transition-opacity duration-300 tracking-wider">LIGHT</span>
+            <span class="text-[9px] font-medium text-accent absolute start-2.5 opacity-0 dark:opacity-100 transition-opacity duration-300 tracking-wider">DARK</span>
+            <div class="w-[24px] h-[24px] bg-white dark:bg-brand-dark border border-gray-200 dark:border-gray-600 rounded-full shadow-sm transform transition-transform duration-300 flex items-center justify-center rtl:dark:-translate-x-[38px] ltr:dark:translate-x-[38px] dark:translate-x-[38px] z-10">
+              <i class="fas fa-sun text-[11px] text-accent dark:hidden block"></i>
+              <i class="fas fa-moon text-[11px] text-accent hidden dark:block"></i>
+            </div>
+          </button>
+          
+          <button id="rtl-toggle" class="text-xs font-medium text-gray-400 hover:text-accent transition-colors duration-300 ms-2" title="Toggle RTL">RTL</button>
+
+          <div class="h-8 w-px bg-gray-200 dark:bg-gray-800 mx-2"></div>
+
+          <button type="button" onclick="window.location.href='login.html'" class="bg-accent border-2 border-accent text-white hover:bg-transparent hover:text-accent px-6 py-2.5 text-xs uppercase tracking-wider font-semibold transition-all duration-300 flex items-center gap-2">
+            <span>Login</span>
+            <i class="fas fa-arrow-right text-[10px] rtl:rotate-180"></i>
+          </button>
+          
+          <a href="register.html" class="bg-transparent border-2 border-gray-300 dark:border-gray-700 text-brand-dark dark:text-brand-light hover:border-accent dark:hover:border-accent hover:text-accent dark:hover:text-accent px-6 py-2.5 text-xs uppercase tracking-wider font-medium transition-all duration-300 flex items-center gap-2">
+            <span>Register</span>
+            <i class="fas fa-arrow-right text-[10px] rtl:rotate-180"></i>
+          </a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="xl:hidden flex items-center">
+          <button id="mobile-menu-button" class="text-gray-900 dark:text-brand-light hover:text-accent focus:outline-none transition duration-300">
+            <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path id="menu-icon" stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              <path id="close-icon" class="hidden" stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden xl:hidden bg-brand-light dark:bg-[#1E293B] border-b border-gray-200 dark:border-gray-800 shadow-2xl">
+      <div class="px-6 pt-4 pb-8 flex flex-col gap-0 max-h-[calc(100vh-90px)] overflow-y-auto">
+
+        <div class="border-b border-gray-100 dark:border-white/5">
+          <button id="mobile-home-dropdown" class="w-full flex items-center justify-between py-4 text-gray-900 dark:text-brand-light hover:text-accent transition duration-300">
+            <span class="text-xs uppercase tracking-widest font-medium">Home</span>
+            <i class="fas fa-plus text-xs transition-transform duration-300" id="mobile-home-icon"></i>
+          </button>
+          <div id="mobile-home-menu" class="hidden pb-4 flex flex-col gap-3 ps-4 border-s-2 border-accent/20 ms-2">
+            <a href="index.html" class="block text-sm font-medium text-gray-500 hover:text-accent dark:text-gray-400 transition duration-300 uppercase tracking-wider">01. Home Page</a>
+            <a href="home-2.html" class="block text-sm font-medium text-gray-500 hover:text-accent dark:text-gray-400 transition duration-300 uppercase tracking-wider">02. Home Page</a>
+          </div>
+        </div>
+
+        <a href="about.html" class="block py-4 border-b border-gray-100 dark:border-white/5 text-gray-900 dark:text-brand-light hover:text-accent transition duration-300 text-xs uppercase tracking-widest font-medium">About</a>
+
+        <!-- Services (Active mobile) -->
+        <a href="services.html" class="block py-4 border-b border-gray-100 dark:border-white/5 text-accent transition duration-300 text-xs uppercase tracking-widest font-medium" style="border-left: 3px solid #008C95; padding-left: 12px; margin-left: -12px;">Services</a>
+
+        <a href="blog.html" class="block py-4 border-b border-gray-100 dark:border-white/5 text-gray-900 dark:text-brand-light hover:text-accent transition duration-300 text-xs uppercase tracking-widest font-medium">Blog</a>
+        <a href="contact.html" class="block py-4 border-b border-gray-100 dark:border-white/5 text-gray-900 dark:text-brand-light hover:text-accent transition duration-300 text-xs uppercase tracking-widest font-medium">Contact</a>
+
+        <div class="border-b border-gray-100 dark:border-white/5">
+          <button id="mobile-dashboard-dropdown" class="w-full flex items-center justify-between py-4 text-gray-900 dark:text-brand-light hover:text-accent transition duration-300">
+            <span class="text-xs uppercase tracking-widest font-medium">Dashboard</span>
+            <i class="fas fa-plus text-xs transition-transform duration-300" id="mobile-dashboard-icon"></i>
+          </button>
+          <div id="mobile-dashboard-menu" class="hidden pb-4 flex flex-col gap-4 ps-4 border-s-2 border-accent/20 ms-2 mt-2">
+            <a href="admin-dashboard.html" class="flex items-center text-sm font-medium text-gray-500 hover:text-accent dark:text-gray-400 transition duration-300 uppercase tracking-wider">Admin Dashboard</a>
+            <a href="client-dashboard.html" class="flex items-center text-sm font-medium text-gray-500 hover:text-accent dark:text-gray-400 transition duration-300 uppercase tracking-wider">Client Dashboard</a>
+          </div>
+        </div>
+
+        <div class="pt-8 flex flex-col gap-4">
+          <button type="button" onclick="window.location.href='login.html'" class="flex items-center justify-center w-full bg-accent border-2 border-accent text-white hover:bg-transparent hover:text-accent px-4 py-3.5 font-semibold uppercase tracking-widest text-center transition duration-300 text-xs gap-2">
+            <span>Login</span>
+            <i class="fas fa-arrow-right text-[10px] rtl:rotate-180"></i>
+          </button>
+          
+          <a href="register.html" class="flex items-center justify-center w-full bg-transparent border-2 border-gray-300 dark:border-gray-700 text-brand-dark dark:text-brand-light hover:border-accent dark:hover:border-accent hover:text-accent dark:hover:text-accent px-4 py-3.5 font-medium uppercase tracking-widest text-center transition duration-300 text-xs gap-2">
+            <span>Register</span>
+            <i class="fas fa-arrow-right text-[10px] rtl:rotate-180"></i>
+          </a>
+          
+          <div class="flex justify-between items-center pt-6 pb-2 border-t border-gray-100 dark:border-white/5 mt-4">
+            <button id="mobile-theme-toggle" class="bg-gray-100 dark:bg-[#1a1a1a] border border-gray-200 dark:border-gray-700 rounded-full px-4 py-2 transition-colors flex items-center text-xs font-medium uppercase tracking-widest">
+              <span class="dark:hidden flex items-center text-accent"><i class="fas fa-sun me-2"></i> Light Active</span>
+              <span class="hidden dark:flex items-center text-accent"><i class="fas fa-moon me-2"></i> Dark Active</span>
+            </button>
+            <button id="mobile-rtl-toggle" class="text-gray-400 hover:text-accent transition-colors flex items-center text-xs font-medium uppercase tracking-widest">
+              <i class="fas fa-language me-2 text-lg"></i> RTL
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="flex-grow flex flex-col pt-[90px]">
+
+    <!-- ============================================ -->
+    <!-- SECTION 1: DYNAMIC HERO (populated via JS) -->
+    <!-- ============================================ -->
+    <section id="hero-section" class="relative min-h-[500px] lg:min-h-[580px] pt-[120px] pb-[80px] lg:pt-[140px] lg:pb-[100px] flex items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');">
+      <div class="absolute inset-0 bg-black/70 z-0"></div>
+      <div class="absolute top-20 start-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-20 end-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+          <div class="text-white flex flex-col gap-6 animate-fade-in">
+            <!-- Breadcrumb -->
+            <nav class="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-white/60">
+              <a href="index.html" class="hover:text-accent transition-colors">Home</a>
+              <i class="fas fa-chevron-right text-[8px]"></i>
+              <a href="services.html" class="hover:text-accent transition-colors">Services</a>
+              <i class="fas fa-chevron-right text-[8px]"></i>
+              <span id="breadcrumb-service" class="text-accent">Service</span>
+            </nav>
+
+            <p id="hero-tag" class="text-sm font-bold tracking-[0.25em] text-accent uppercase">Service</p>
+            <h1 id="hero-title" class="text-5xl sm:text-6xl lg:text-7xl font-semibold leading-tight tracking-tight">
+              Service <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary">Details.</span>
+            </h1>
+            <p id="hero-description" class="text-lg text-white/90 leading-relaxed font-medium max-w-lg">
+              Loading service information...
+            </p>
+            <div class="flex flex-wrap gap-4 pt-4">
+              <a href="contact.html" class="inline-flex items-center justify-center px-8 py-4 bg-accent text-white hover:bg-secondary font-medium uppercase tracking-widest text-xs transition-all duration-300 gap-2 shadow-lg shadow-accent/30">
+                <span>Book an Appointment</span>
+                <i class="fas fa-arrow-right rtl:rotate-180"></i>
+              </a>
+              <a href="services.html" class="inline-flex items-center justify-center px-8 py-4 bg-transparent border border-white/60 text-white hover:border-accent hover:text-accent font-medium uppercase tracking-widest text-xs transition-all duration-300">
+                <span>All Services</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="relative lg:ps-10">
+             <div class="relative overflow-hidden shadow-2xl h-[380px] lg:h-[420px] w-full rounded-2xl border-4 border-white/10">
+               <img id="hero-image" src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Service" class="w-full h-full object-cover">
+               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+               <div class="absolute bottom-0 start-0 w-full h-1 bg-gradient-to-r from-accent to-transparent"></div>
+             </div>
+             <!-- Floating stat badge -->
+             <div id="hero-badge" class="absolute -bottom-6 -right-4 lg:right-8 bg-white dark:bg-[#1E293B] rounded-2xl shadow-xl p-5 border border-gray-100 dark:border-white/10">
+               <p id="hero-badge-value" class="text-3xl font-serif font-bold text-accent">—</p>
+               <p id="hero-badge-label" class="text-[11px] font-semibold uppercase tracking-wider text-brand-muted dark:text-gray-400">Loading</p>
+             </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 2: OVERVIEW + BENEFITS (dynamic) -->
+    <!-- ============================================ -->
+    <section class="py-24 bg-white dark:bg-brand-dark relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 left-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-16 items-start">
+
+          <!-- Left: Overview -->
+          <div class="flex flex-col gap-6">
+            <span class="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.25em] text-accent uppercase">
+              <span class="w-8 h-px bg-accent"></span> Overview
+            </span>
+            <h2 id="overview-title" class="text-4xl md:text-5xl font-serif font-bold text-brand-dark dark:text-brand-light leading-tight">
+              About This Service
+            </h2>
+            <p id="overview-text" class="text-lg text-brand-muted dark:text-gray-400 leading-relaxed">
+              Loading overview...
+            </p>
+            <p id="overview-text-2" class="text-lg text-brand-muted dark:text-gray-400 leading-relaxed">
+            </p>
+          </div>
+
+          <!-- Right: Benefits -->
+          <div class="flex flex-col gap-6">
+            <span class="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.25em] text-accent uppercase">
+              <span class="w-8 h-px bg-accent"></span> Key Benefits
+            </span>
+            <h3 class="text-3xl md:text-4xl font-serif font-bold text-brand-dark dark:text-brand-light leading-tight">
+              What You'll Gain
+            </h3>
+            <ul id="benefits-list" class="flex flex-col gap-4 mt-2">
+              <!-- Populated by JS -->
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 3: PROCEDURE STEPS (dynamic, timeline) -->
+    <!-- ============================================ -->
+    <section class="py-24 bg-brand-light dark:bg-[#0F172A]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.25em] text-accent uppercase mb-3">
+            <span class="w-8 h-px bg-accent"></span> What to Expect <span class="w-8 h-px bg-accent"></span>
+          </span>
+          <h2 class="text-4xl md:text-5xl font-serif font-bold text-brand-dark dark:text-brand-light mb-6">Your Treatment Journey</h2>
+          <p class="text-lg text-brand-muted dark:text-gray-400">A clear, step-by-step overview of what happens during your visit.</p>
+        </div>
+
+        <div id="steps-container" class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 4: FAQ (dynamic, accordion-style) -->
+    <!-- ============================================ -->
+    <section class="py-24 bg-white dark:bg-brand-dark border-t border-gray-100 dark:border-white/5">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.25em] text-accent uppercase mb-3">
+            <span class="w-8 h-px bg-accent"></span> Questions <span class="w-8 h-px bg-accent"></span>
+          </span>
+          <h2 class="text-4xl md:text-5xl font-serif font-bold text-brand-dark dark:text-brand-light mb-6">Frequently Asked Questions</h2>
+          <p class="text-lg text-brand-muted dark:text-gray-400">Common questions about this service, answered by our specialists.</p>
+        </div>
+
+        <div id="faq-container" class="flex flex-col gap-4">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 5: RELATED SERVICES (dynamic) -->
+    <!-- ============================================ -->
+    <section class="py-24 bg-brand-light dark:bg-[#0F172A]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+          <div class="max-w-xl">
+            <h2 class="text-sm font-bold tracking-widest text-accent uppercase mb-3">Explore More</h2>
+            <h3 class="text-4xl md:text-5xl font-serif font-bold text-brand-dark dark:text-brand-light leading-tight">Related Services</h3>
+          </div>
+          <a href="services.html" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-accent hover:text-secondary transition-colors shrink-0">
+            All Services <i class="fas fa-long-arrow-alt-right text-lg rtl:rotate-180"></i>
+          </a>
+        </div>
+
+        <div id="related-container" class="grid md:grid-cols-3 gap-8">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 6: CTA / BOOK APPOINTMENT -->
+    <!-- ============================================ -->
+    <section class="py-24 bg-white dark:bg-[#0F172A]">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gradient-to-br from-brand-dark to-[#1E293B] rounded-[3rem] p-10 md:p-20 relative overflow-hidden shadow-2xl">
+          <div class="absolute top-0 right-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] opacity-10 bg-cover bg-center"></div>
+          <div class="absolute -top-24 -right-24 w-64 h-64 bg-accent/30 rounded-full blur-3xl"></div>
+          <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-accent/30 rounded-full blur-3xl"></div>
+          
+          <div class="relative z-10 text-center">
+            <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-6">Ready to Get Started?</h2>
+            <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+              Book your consultation for <span id="cta-service-name" class="text-accent font-semibold">this service</span> and take the first step toward better vision.
+            </p>
+            
+            <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
+              <input 
+                type="email" 
+                placeholder="Enter your email address" 
+                class="flex-grow px-6 py-4 rounded-full bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition"
+                required
+              >
+              <button 
+                type="submit" 
+                class="px-8 py-4 rounded-full bg-accent text-white font-bold uppercase tracking-widest text-sm hover:bg-secondary transition-colors whitespace-nowrap shadow-lg shadow-accent/20"
+              >
+                Book Now
+              </button>
+            </form>
+            <p class="text-gray-400 text-sm mt-6">
+              We respect your privacy. Your information is safe with us. <a href="#" class="text-accent hover:underline">Privacy Policy</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 7: NOT FOUND (only shown if invalid service) -->
+    <!-- ============================================ -->
+    <section id="not-found-section" class="hidden py-32 bg-brand-light dark:bg-[#0F172A]">
+      <div class="max-w-3xl mx-auto px-4 text-center">
+        <div class="w-20 h-20 mx-auto rounded-full bg-accent/10 flex items-center justify-center mb-6">
+          <i class="fas fa-search text-accent text-3xl"></i>
+        </div>
+        <h2 class="text-4xl font-serif font-bold text-brand-dark dark:text-brand-light mb-4">Service Not Found</h2>
+        <p class="text-lg text-brand-muted dark:text-gray-400 mb-8">
+          We couldn't find the service you're looking for. Please browse our full list of services below.
+        </p>
+        <a href="services.html" class="inline-flex items-center justify-center px-8 py-4 bg-accent text-white hover:bg-secondary font-medium uppercase tracking-widest text-xs transition-all duration-300 gap-2 shadow-lg shadow-accent/30">
+          <span>View All Services</span>
+          <i class="fas fa-arrow-right rtl:rotate-180"></i>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-brand-dark text-brand-light pt-24 pb-12 mt-auto border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        
+        <!-- Column 1: Brand -->
+        <div>
+          <a href="index.html" class="flex items-center gap-3 mb-6 group w-fit">
+            <div class="w-10 h-10 bg-white dark:bg-brand-dark rounded-xl flex items-center justify-center shadow-md transition-all duration-300 group-hover:scale-105 group-hover:bg-accent shrink-0">
+              <svg class="w-5 h-5 text-brand-dark dark:text-accent group-hover:text-white transition-colors fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+              </svg>
+            </div>
+            <div class="flex flex-col">
+              <span class="text-2xl font-black tracking-tight uppercase text-brand-light leading-none">Vision<span class="text-accent">Care</span></span>
+              <span class="text-[9px] font-bold tracking-[0.22em] text-accent uppercase mt-1 leading-none">Ophthalmology & Eye Surgery</span>
+            </div>
+          </a>
+          <p class="text-gray-400 mb-8 font-medium leading-relaxed text-base">
+            Providing advanced eye care and surgical treatments with compassion and precision. Your vision is our priority.
+          </p>
+          <div class="flex gap-4">
+            <a href="#" class="w-12 h-12 border border-white/20 text-brand-light hover:border-accent hover:text-accent flex items-center justify-center transition-all duration-300 rounded-sm"><i class="fab fa-facebook-f text-base"></i></a>
+            <a href="#" class="w-12 h-12 border border-white/20 text-brand-light hover:border-accent hover:text-accent flex items-center justify-center transition-all duration-300 rounded-sm"><i class="fab fa-instagram text-base"></i></a>
+            <a href="#" class="w-12 h-12 border border-white/20 text-brand-light hover:border-accent hover:text-accent flex items-center justify-center transition-all duration-300 rounded-sm"><i class="fab fa-x-twitter text-base"></i></a>
+            <a href="#" class="w-12 h-12 border border-white/20 text-brand-light hover:border-accent hover:text-accent flex items-center justify-center transition-all duration-300 rounded-sm"><i class="fab fa-youtube text-base"></i></a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div>
+          <h4 class="text-sm uppercase tracking-[0.2em] font-medium mb-8 text-brand-light">Quick Links</h4>
+          <ul class="flex flex-col gap-5">
+            <li><a href="index.html" class="text-base text-gray-400 hover:text-accent transition-colors duration-300 font-medium">Home</a></li>
+            <li><a href="about.html" class="text-base text-gray-400 hover:text-accent transition-colors duration-300 font-medium">About Us</a></li>
+            <li><a href="blog.html" class="text-base text-gray-400 hover:text-accent transition-colors duration-300 font-medium">Eye Health Blog</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Our Services -->
+        <div>
+          <h4 class="text-sm uppercase tracking-[0.2em] font-medium mb-8 text-brand-light">Our Services</h4>
+          <ul class="flex flex-col gap-5">
+            <li><a href="service-details.html?service=comprehensive-eye-exam" class="text-base text-gray-400 hover:text-accent transition-colors duration-300 font-medium">Eye Checkup</a></li>
+            <li><a href="service-details.html?service=cataract-surgery" class="text-base text-gray-400 hover:text-accent transition-colors duration-300 font-medium">Cataract Surgery</a></li>
+            <li><a href="service-details.html?service=lasik" class="text-base text-gray-400 hover:text-accent transition-colors duration-300 font-medium">LASIK</a></li>
+            <li><a href="service-details.html?service=pediatric-eye-care" class="text-base text-gray-400 hover:text-accent transition-colors duration-300 font-medium">Pediatric Eye Care</a></li>
+            <li><a href="service-details.html?service=retina-glaucoma-care" class="text-base text-gray-400 hover:text-accent transition-colors duration-300 font-medium">Retina Treatment</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Contact Info -->
+        <div>
+          <h4 class="text-sm uppercase tracking-[0.2em] font-medium mb-8 text-brand-light">Contact Us</h4>
+          <ul class="flex flex-col gap-6">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt text-accent mt-1 me-4 text-base"></i>
+              <span class="text-base text-gray-400 font-medium">123 Vision Lane, Medical District, Salem, Tamil Nadu, India</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-phone text-accent me-4 text-base"></i>
+              <a href="tel:+919876543210" class="text-base text-gray-400 hover:text-accent transition-colors font-medium">+91 98765 43210</a>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-envelope text-accent me-4 text-base"></i>
+              <a href="mailto:info@visioncare.com" class="text-base text-gray-400 hover:text-accent transition-colors font-medium">info@visioncare.com</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Footer bottom -->
+      <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 text-sm tracking-wider uppercase mb-4 md:mb-0 font-medium">
+          © 2026 VisionCare Ophthalmology & Eye Surgery Center. All rights reserved.
+        </p>
+        <div class="flex gap-6">
+          <a href="login.html" class="text-gray-400 hover:text-accent text-sm tracking-wider uppercase font-medium transition-colors duration-300">Patient Login</a>
+          <a href="#" class="text-gray-400 hover:text-accent text-sm tracking-wider uppercase font-medium transition-colors duration-300">Privacy</a>
+          <a href="#" class="text-gray-400 hover:text-accent text-sm tracking-wider uppercase font-medium transition-colors duration-300">Terms</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // ============================================================
+    // SERVICE DATA — every service in services.html is defined here
+    // ============================================================
+    const SERVICES = {
+      'comprehensive-eye-exam': {
+        tag: 'Service 01',
+        title: 'Comprehensive Eye Exam',
+        heroTitle: 'Comprehensive <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary">Eye Exam.</span>',
+        description: 'A thorough assessment of your vision and eye health using digital refraction, tonometry, and retinal imaging to detect issues early.',
+        image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        badgeValue: '45 min',
+        badgeLabel: 'Avg. Visit Time',
+        overviewTitle: 'About Comprehensive Eye Exams',
+        overview1: 'Our comprehensive eye exam is a full evaluation of your visual system — not just a quick vision check. We use digital refraction to measure how your eyes bend light, tonometry to check eye pressure for glaucoma risk, and dilated retinal imaging to inspect the back of the eye for signs of disease.',
+        overview2: 'Because many serious eye conditions — including glaucoma, diabetic retinopathy, and macular degeneration — develop silently, regular comprehensive exams are the single most effective way to protect your long-term vision.',
+        benefits: [
+          'Early detection of glaucoma, cataracts, and retinal disease',
+          'Accurate prescription updates for glasses and contacts',
+          'Digital retinal imaging stored for future comparison',
+          'Personalised eye health recommendations from our specialists'
+        ],
+        steps: [
+          { icon: 'fa-clipboard-list', title: 'Check-In & History', text: 'We review your medical history, medications, and any vision concerns.' },
+          { icon: 'fa-eye', title: 'Visual Acuity Test', text: 'Digital charts measure how clearly you see at distance and near.' },
+          { icon: 'fa-wave-square', title: 'Eye Health Screening', text: 'Eye pressure, slit-lamp exam, and dilated retinal imaging.' },
+          { icon: 'fa-comments', title: 'Results & Plan', text: 'Your doctor explains findings and recommends next steps.' }
+        ],
+        faqs: [
+          { q: 'How often should I have a comprehensive eye exam?', a: 'Adults should have one every 1–2 years. If you wear contacts, have diabetes, or a family history of eye disease, we may recommend annual exams.' },
+          { q: 'Will my eyes be dilated?', a: 'In most cases, yes. Dilation lets us see the retina clearly. Your vision may be blurry for 3–4 hours, so bring sunglasses and consider having someone drive you home.' },
+          { q: 'Does insurance cover this exam?', a: 'Most vision and medical insurance plans cover comprehensive exams. Contact our front desk to verify your specific plan before your visit.' }
+        ],
+        related: ['cataract-surgery', 'lasik', 'retina-glaucoma-care']
+      },
+      'cataract-surgery': {
+        tag: 'Service 02',
+        title: 'Cataract Surgery',
+        heroTitle: 'Cataract <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary">Surgery.</span>',
+        description: 'Restore clear vision with bladeless, laser-assisted cataract surgery and premium intraocular lenses tailored to your lifestyle.',
+        image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        badgeValue: '30 min',
+        badgeLabel: 'Procedure Time',
+        overviewTitle: 'About Cataract Surgery',
+        overview1: 'A cataract is a clouding of the eye\'s natural lens that gradually blurs vision and dulls colours. Cataract surgery removes the clouded lens and replaces it with a clear, artificial intraocular lens (IOL). Our bladeless, laser-assisted technique uses femtosecond laser precision to make every step safer and more predictable.',
+        overview2: 'We offer a range of premium IOLs — including monofocal, multifocal, and toric lenses — so your surgeon can tailor the outcome to your lifestyle, whether you want sharp distance vision or freedom from reading glasses.',
+        benefits: [
+          'Bladeless femtosecond laser precision',
+          'Premium monofocal, multifocal, and toric IOL options',
+          'Same-day discharge with rapid visual recovery',
+          'Over 99% of patients report improved vision'
+        ],
+        steps: [
+          { icon: 'fa-stethoscope', title: 'Pre-Op Consultation', text: 'Detailed eye measurements and IOL selection based on your lifestyle.' },
+          { icon: 'fa-bolt', title: 'Laser Procedure', text: 'Femtosecond laser softens the cataract and creates precise incisions.' },
+          { icon: 'fa-eye', title: 'Lens Implant', text: 'The clouded lens is removed and the premium IOL is implanted.' },
+          { icon: 'fa-check-circle', title: 'Recovery', text: 'Most patients notice clearer vision within 24–48 hours.' }
+        ],
+        faqs: [
+          { q: 'Is cataract surgery painful?', a: 'No. The procedure is performed with numbing eye drops and light sedation, so you\'ll be relaxed and comfortable throughout.' },
+          { q: 'How long is recovery?', a: 'Most patients return to normal activities within 2–3 days. Full visual stabilisation takes about 4–6 weeks.' },
+          { q: 'Can both eyes be done at once?', a: 'No, we typically operate on one eye at a time, usually 1–2 weeks apart, to allow proper healing and to minimise risk.' }
+        ],
+        related: ['comprehensive-eye-exam', 'lasik', 'retina-glaucoma-care']
+      },
+      'lasik': {
+        tag: 'Service 03',
+        title: 'LASIK Vision Correction',
+        heroTitle: 'LASIK Vision <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary">Correction.</span>',
+        description: 'Say goodbye to glasses and contacts with bladeless, wavefront-guided LASIK — often completed in under 20 minutes.',
+        image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        badgeValue: '20/20',
+        badgeLabel: 'Typical Outcome',
+        overviewTitle: 'About LASIK',
+        overview1: 'LASIK (Laser-Assisted In Situ Keratomileusis) is a highly effective laser refractive procedure that reshapes the cornea to correct nearsightedness, farsightedness, and astigmatism. Our bladeless, all-laser technique uses wavefront mapping to customise the treatment to your unique eye — for sharper, more predictable results.',
+        overview2: 'The procedure takes about 10 minutes per eye. Most patients notice dramatically improved vision within hours and return to work the next day. It\'s one of the safest and most popular elective procedures in the world.',
+        benefits: [
+          'Bladeless, all-laser procedure with no needles',
+          'Custom wavefront-guided treatment for your unique eyes',
+          'Most patients achieve 20/20 or better',
+          'Return to work the very next day'
+        ],
+        steps: [
+          { icon: 'fa-clipboard-check', title: 'Candidacy Screening', text: 'Corneal mapping and refraction to confirm you\'re a good candidate.' },
+          { icon: 'fa-eye', title: 'Laser Reshaping', text: 'Wavefront-guided laser gently reshapes the cornea in ~20 minutes.' },
+          { icon: 'fa-clock', title: 'Immediate Recovery', text: 'Vision begins improving within hours — most notice clarity by evening.' },
+          { icon: 'fa-check-circle', title: 'Follow-Up', text: 'Quick check-ups at day 1, week 1, and month 1 to confirm healing.' }
+        ],
+        faqs: [
+          { q: 'Am I a good candidate for LASIK?', a: 'You may be if you\'re over 18, have a stable prescription for at least a year, and have healthy corneas. We\'ll confirm with a comprehensive screening.' },
+          { q: 'Is LASIK painful?', a: 'No. Numbing drops are used, and most patients describe only mild pressure during the procedure.' },
+          { q: 'Can I go blind from LASIK?', a: 'There has never been a reported case of blindness from LASIK. It is one of the most studied and safest elective procedures available.' }
+        ],
+        related: ['comprehensive-eye-exam', 'cataract-surgery', 'pediatric-eye-care']
+      },
+      'pediatric-eye-care': {
+        tag: 'Service 04',
+        title: 'Pediatric Eye Care',
+        heroTitle: 'Pediatric <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary">Eye Care.</span>',
+        description: 'Gentle, child-friendly eye exams and treatments that support healthy visual development from infancy through the teenage years.',
+        image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        badgeValue: '0–18',
+        badgeLabel: 'Years Served',
+        overviewTitle: 'About Pediatric Eye Care',
+        overview1: 'Children\'s eyes are still developing, so early detection of vision problems is critical. Our pediatric ophthalmologists use gentle, play-based techniques to examine even the youngest patients — and to make the experience stress-free for both kids and parents.',
+        overview2: 'We screen for lazy eye (amblyopia), crossed eyes (strabismus), refractive errors, and myopia progression. Early intervention can prevent lifelong vision loss and help children thrive in school and beyond.',
+        benefits: [
+          'Child-friendly exams that put kids at ease',
+          'Early detection of amblyopia and strabismus',
+          'Myopia control programs to slow progression',
+          'Vision therapy and patching plans for young patients'
+        ],
+        steps: [
+          { icon: 'fa-smile', title: 'Warm Welcome', text: 'A relaxed, playful environment helps your child feel safe.' },
+          { icon: 'fa-eye', title: 'Gentle Exam', text: 'Age-appropriate vision and alignment testing.' },
+          { icon: 'fa-chart-line', title: 'Development Review', text: 'We discuss findings and monitor visual development.' },
+          { icon: 'fa-check-circle', title: 'Personalised Plan', text: 'Glasses, patching, or therapy tailored to your child.' }
+        ],
+        faqs: [
+          { q: 'When should my child first see an eye doctor?', a: 'A first screening is recommended around 6 months, again at 3 years, and before starting school. Then every 1–2 years unless issues are found.' },
+          { q: 'Will my child need dilation?', a: 'Often, yes — it helps us get accurate measurements. The drops may sting briefly and blur vision for a few hours; bring sunglasses for comfort.' },
+          { q: 'Can lazy eye be treated in older children?', a: 'Yes — while treatment is most effective before age 7, many older children still benefit from patching, therapy, and corrective lenses.' }
+        ],
+        related: ['comprehensive-eye-exam', 'lasik', 'retina-glaucoma-care']
+      },
+      'retina-glaucoma-care': {
+        tag: 'Service 05',
+        title: 'Retina & Glaucoma Care',
+        heroTitle: 'Retina & <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary">Glaucoma Care.</span>',
+        description: 'Advanced diagnostics and treatment for sight-threatening retinal conditions and glaucoma using OCT imaging and targeted therapy.',
+        image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        badgeValue: 'OCT',
+        badgeLabel: 'High-Res Imaging',
+        overviewTitle: 'About Retina & Glaucoma Care',
+        overview1: 'The retina and optic nerve are the most delicate and irreplaceable parts of your visual system. Conditions like diabetic retinopathy, macular degeneration, retinal detachment, and glaucoma can cause permanent vision loss if not caught and treated early.',
+        overview2: 'Our retina specialists use high-resolution OCT imaging to detect disease at the earliest stages, and offer the latest treatments — from intravitreal injections and focal laser therapy to micro-invasive glaucoma surgery (MIGS).',
+        benefits: [
+          'OCT retinal imaging for early disease detection',
+          'Intravitreal injections for macular disease',
+          'Focal and panretinal laser therapy',
+          'MIGS and traditional glaucoma surgery options'
+        ],
+        steps: [
+          { icon: 'fa-microscope', title: 'OCT Imaging', text: 'High-resolution cross-sections of the retina and optic nerve.' },
+          { icon: 'fa-stethoscope', title: 'Specialist Review', text: 'A retina specialist interprets results and explains findings.' },
+          { icon: 'fa-syringe', title: 'Targeted Treatment', text: 'Injections, laser, or surgery — customised to your condition.' },
+          { icon: 'fa-calendar-check', title: 'Ongoing Monitoring', text: 'Regular follow-ups track progress and protect vision.' }
+        ],
+        faqs: [
+          { q: 'What is OCT imaging?', a: 'OCT (Optical Coherence Tomography) is a non-invasive scan that creates detailed cross-sections of the retina. It takes minutes and is completely painless.' },
+          { q: 'Can glaucoma be cured?', a: 'Glaucoma cannot be cured, but it can be managed. Treatment slows or halts vision loss and preserves sight for decades.' },
+          { q: 'How often do I need follow-ups?', a: 'For most retinal or glaucoma conditions, every 3–6 months. Your specialist will set a schedule based on your response to treatment.' }
+        ],
+        related: ['comprehensive-eye-exam', 'cataract-surgery', 'lasik']
+      }
+    };
+
+    // ============================================================
+    // RENDER FUNCTIONS
+    // ============================================================
+
+    function renderService(slug) {
+      const data = SERVICES[slug];
+      if (!data) {
+        // Show not-found section, hide dynamic sections
+        document.getElementById('not-found-section').classList.remove('hidden');
+        document.getElementById('hero-section').classList.add('hidden');
+        return;
+      }
+
+      // ---------- Hero ----------
+      document.getElementById('breadcrumb-service').textContent = data.title;
+      document.getElementById('hero-tag').textContent = data.tag;
+      document.getElementById('hero-title').innerHTML = data.heroTitle;
+      document.getElementById('hero-description').textContent = data.description;
+      document.getElementById('hero-image').src = data.image;
+      document.getElementById('hero-image').alt = data.title;
+      document.getElementById('hero-badge-value').textContent = data.badgeValue;
+      document.getElementById('hero-badge-label').textContent = data.badgeLabel;
+
+      // Update page title
+      document.title = data.title + ' - VisionCare Ophthalmology & Eye Surgery Center';
+
+      // ---------- Overview ----------
+      document.getElementById('overview-title').textContent = data.overviewTitle;
+      document.getElementById('overview-text').textContent = data.overview1;
+      document.getElementById('overview-text-2').textContent = data.overview2;
+
+      // ---------- Benefits ----------
+      const benefitsList = document.getElementById('benefits-list');
+      benefitsList.innerHTML = '';
+      data.benefits.forEach(benefit => {
+        const li = document.createElement('li');
+        li.className = 'flex items-start gap-3 p-3 rounded-xl bg-brand-light dark:bg-[#1E293B] border border-gray-100 dark:border-white/5';
+        li.innerHTML = `
+          <div class="w-7 h-7 rounded-full bg-accent/10 flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fas fa-check text-accent text-[10px]"></i>
+          </div>
+          <span class="text-sm text-brand-muted dark:text-gray-400 leading-relaxed">${benefit}</span>
+        `;
+        benefitsList.appendChild(li);
+      });
+
+      // ---------- Steps ----------
+      const stepsContainer = document.getElementById('steps-container');
+      stepsContainer.innerHTML = '';
+      data.steps.forEach((step, index) => {
+        const card = document.createElement('div');
+        card.className = 'relative p-6 rounded-2xl bg-white dark:bg-[#1E293B] border border-gray-100 dark:border-white/5 hover:-translate-y-1 transition-transform duration-300';
+        card.innerHTML = `
+          <div class="absolute -top-3 -left-2 w-8 h-8 rounded-full bg-accent text-white text-xs font-bold flex items-center justify-center shadow-lg">${index + 1}</div>
+          <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+            <i class="fas ${step.icon} text-accent text-lg"></i>
+          </div>
+          <h4 class="text-lg font-serif font-bold text-brand-dark dark:text-white mb-2">${step.title}</h4>
+          <p class="text-sm text-brand-muted dark:text-gray-400 leading-relaxed">${step.text}</p>
+        `;
+        stepsContainer.appendChild(card);
+      });
+
+      // ---------- FAQ ----------
+      const faqContainer = document.getElementById('faq-container');
+      faqContainer.innerHTML = '';
+      data.faqs.forEach((faq, index) => {
+        const item = document.createElement('div');
+        item.className = 'rounded-2xl bg-white dark:bg-[#1E293B] border border-gray-100 dark:border-white/5 overflow-hidden';
+        item.innerHTML = `
+          <button class="w-full flex items-center justify-between gap-4 p-5 text-left hover:bg-gray-50 dark:hover:bg-white/5 transition-colors faq-toggle" data-faq-index="${index}">
+            <span class="font-bold text-brand-dark dark:text-white text-base">${faq.q}</span>
+            <i class="fas fa-chevron-down text-accent text-sm transition-transform duration-300 faq-icon"></i>
+          </button>
+          <div class="faq-answer hidden px-5 pb-5 text-brand-muted dark:text-gray-400 text-sm leading-relaxed">${faq.a}</div>
+        `;
+        faqContainer.appendChild(item);
+      });
+
+      // Attach FAQ accordion handlers
+      document.querySelectorAll('.faq-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const answer = btn.nextElementSibling;
+          const icon = btn.querySelector('.faq-icon');
+          answer.classList.toggle('hidden');
+          icon.classList.toggle('rotate-180');
+        });
+      });
+
+      // ---------- Related Services ----------
+      const relatedContainer = document.getElementById('related-container');
+      relatedContainer.innerHTML = '';
+      data.related.forEach(slug => {
+        const rel = SERVICES[slug];
+        if (!rel) return;
+        const card = document.createElement('a');
+        card.href = 'service-details.html?service=' + slug;
+        card.className = 'group bg-white dark:bg-[#1E293B] rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-white/5 hover:-translate-y-2 transition-transform duration-300 flex flex-col';
+        card.innerHTML = `
+          <div class="relative h-44 overflow-hidden">
+            <img src="${rel.image}" alt="${rel.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h4 class="text-lg font-serif font-bold text-brand-dark dark:text-white mb-2">${rel.title}</h4>
+            <p class="text-sm text-brand-muted dark:text-gray-400 leading-relaxed mb-4 flex-grow">${rel.description.substring(0, 90)}...</p>
+            <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-accent group-hover:text-secondary transition-colors">
+              View Details <i class="fas fa-arrow-right text-[10px] rtl:rotate-180"></i>
+            </span>
+          </div>
+        `;
+        relatedContainer.appendChild(card);
+      });
+
+      // ---------- CTA ----------
+      document.getElementById('cta-service-name').textContent = data.title;
+    }
+
+    // ============================================================
+    // INIT — read ?service= from URL
+    // ============================================================
+    function init() {
+      const params = new URLSearchParams(window.location.search);
+      const slug = params.get('service');
+
+      // Small delay to show spinner (feels responsive)
+      setTimeout(() => {
+        renderService(slug);
+        document.getElementById('loading-overlay').classList.add('hidden-overlay');
+        setTimeout(() => {
+          document.getElementById('loading-overlay').style.display = 'none';
+        }, 300);
+      }, 200);
+    }
+
+    // ============================================================
+    // THEME / RTL / MOBILE MENU (same as other pages)
+    // ============================================================
+    const themeToggle = document.getElementById('theme-toggle');
+    const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+    const html = document.documentElement;
+
+    function toggleTheme() {
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+
+    if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+    if (mobileThemeToggle) mobileThemeToggle.addEventListener('click', toggleTheme);
+    if (localStorage.getItem('theme') === 'dark') html.classList.add('dark');
+
+    const rtlToggle = document.getElementById('rtl-toggle');
+    const mobileRtlToggle = document.getElementById('mobile-rtl-toggle');
+
+    function toggleRTL() {
+      if (html.getAttribute('dir') === 'rtl') {
+        html.removeAttribute('dir');
+        localStorage.setItem('direction', 'ltr');
+      } else {
+        html.setAttribute('dir', 'rtl');
+        localStorage.setItem('direction', 'rtl');
+      }
+    }
+
+    if (rtlToggle) rtlToggle.addEventListener('click', toggleRTL);
+    if (mobileRtlToggle) mobileRtlToggle.addEventListener('click', toggleRTL);
+    if (localStorage.getItem('direction') === 'rtl') html.setAttribute('dir', 'rtl');
+
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    if (mobileMenuButton) {
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        menuIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+        if (!mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('flex');
+        } else {
+            mobileMenu.classList.remove('flex');
+        }
+      });
+    }
+
+    function setupMobileDropdown(dropdownId, menuId, iconId) {
+      const dropdown = document.getElementById(dropdownId);   
+      const menu = document.getElementById(menuId);
+      const icon = document.getElementById(iconId);
+      
+      if(dropdown && menu && icon) {
+        dropdown.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+          if(menu.classList.contains('hidden')) {
+            icon.classList.remove('fa-minus');
+            icon.classList.add('fa-plus');
+            menu.classList.remove('flex');
+          } else {
+            icon.classList.remove('fa-plus');
+            icon.classList.add('fa-minus');
+            menu.classList.add('flex');
+          }
+        });
+      }
+    }
+
+    setupMobileDropdown('mobile-home-dropdown', 'mobile-home-menu', 'mobile-home-icon');
+    setupMobileDropdown('mobile-dashboard-dropdown', 'mobile-dashboard-menu', 'mobile-dashboard-icon');
+
+    // Run init when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>

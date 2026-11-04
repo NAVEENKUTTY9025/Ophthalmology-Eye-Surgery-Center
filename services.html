@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - VisionCare Ophthalmology & Eye Surgery Center</title>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="alternate icon" href="favicon.ico">
+  <meta name="description" content="Comprehensive eye care services including cataract surgery, LASIK, pediatric care, retina treatment, and more.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
+  <script>
+    tailwind.config = { 
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            'accent': '#8B2635',        // Burgundy Red (Premium)
+            'secondary': '#6F1D2A',     // Deep Burgundy for hover/depth
+            'accent-light': '#B3394B',  // Vibrant Burgundy highlight
+            'gold': '#C49A38',          // Warm Gold (Luxury accent)
+            'purple': '#7040A0',        // Deep Purple (Modern accent)
+            'brand-dark': '#000000',
+            'brand-light': '#FFFFFF',
+            'brand-muted': '#4B5563'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    [dir="rtl"] { direction: rtl; }
+    
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in { animation: fadeInUp 0.8s ease-out; }
+
+    /* Active nav underline */
+    .nav-active {
+      color: #8B2635 !important;
+    }
+    .nav-active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #8B2635;
+    }
+    .dark .nav-active {
+      color: #8B2635 !important;
+    }
+    .dark .nav-active::after {
+      background-color: #8B2635;
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body class="font-sans antialiased transition-colors duration-300 bg-brand-light dark:bg-brand-dark flex flex-col min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="bg-brand-light dark:bg-brand-dark fixed w-full top-0 z-50 border-b border-gray-200 dark:border-white/10 transition-colors duration-300">
+    <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-[90px]">
+
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+          <a href="index.html" class="flex items-center gap-3 group">
+            <div class="w-10 h-10 bg-accent rounded-xl flex items-center justify-center shadow-md shadow-accent/20 transition-all duration-300 group-hover:scale-105 group-hover:bg-secondary shrink-0">
+              <svg class="w-5 h-5 text-white transition-colors fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+              </svg>
+            </div>
+            <div class="flex flex-col">
+              <span class="text-2xl font-black tracking-tight text-brand-dark dark:text-brand-light uppercase leading-none">Vision<span class="text-accent">Care</span></span>
+              <span class="text-[9px] font-bold tracking-[0.22em] text-accent uppercase mt-1 leading-none">Ophthalmology & Eye Surgery</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Desktop Nav Links -->
+        <div class="hidden xl:flex items-center justify-center flex-1 mx-8">
+          <div class="flex items-center gap-8">
+
+            <!-- Home Dropdown -->
+            <div class="relative group h-[90px] flex items-center">
+              <button class="text-xs uppercase tracking-[0.15em] font-medium text-gray-900 dark:text-gray-100 hover:text-accent transition-colors flex items-center relative py-2">
+                <span>Home</span>
+                <i class="fas fa-chevron-down text-[10px] ms-2 transition-transform duration-300 group-hover:rotate-180"></i>
+                <span class="absolute bottom-0 start-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full"></span>
+              </button>
+              
+              <div class="absolute top-[90px] start-0 w-56 bg-brand-light dark:bg-[#1E293B] border border-t-0 border-gray-200 dark:border-white/10 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0 z-50">
+                <div class="py-4 px-6 flex flex-col gap-4">
+                  <a href="index.html" class="text-sm font-medium text-gray-500 hover:text-accent dark:text-gray-400 dark:hover:text-accent transition-colors">HOME PAGE 01</a>
+                  <a href="home-2.html" class="text-sm font-medium text-gray-500 hover:text-accent dark:text-gray-400 dark:hover:text-accent transition-colors">HOME PAGE 02</a>
+                </div>
+              </div>
+            </div>
+
+            <a href="about.html" class="relative group text-xs uppercase tracking-[0.15em] font-medium text-gray-900 dark:text-gray-100 hover:text-accent transition-colors py-2">
+              About
+              <span class="absolute bottom-0 start-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            
+            <!-- Services (Active) -->
+            <a href="services.html" class="nav-active relative group text-xs uppercase tracking-[0.15em] font-medium text-gray-900 dark:text-gray-100 hover:text-accent transition-colors py-2">
+              Services
+              <span class="absolute bottom-0 start-0 w-full h-[2px] bg-accent transition-all duration-300"></span>
+            </a>
+            
+            <a href="blog.html" class="relative group text-xs uppercase tracking-[0.15em] font-medium text-gray-900 dark:text-gray-100 hover:text-accent transition-colors py-2">
+              Blog
+              <span class="absolute bottom-0 start-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            
+            <a href="contact.html" class="relative group text-xs uppercase tracking-[0.15em] font-medium text-gray-900 dark:text-gray-100 hover:text-accent transition-colors py-2">
+              Contact
+              <span class="absolute bottom-0 start-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full"></span>
+            </a>
+
+            <!-- Dashboard Dropdown -->
+            <div class="relative group h-[90px] flex items-center">
+              <button class="text-xs uppercase tracking-[0.15em] font-medium text-gray-900 dark:text-gray-100 hover:text-accent transition-colors flex items-center relative py-2">
+                <span>Dashboard</span>
+                <i class="fas fa-chevron-down text-[10px] ms-2 transition-transform duration-300 group-hover:rotate-180"></i>
+                <span class="absolute bottom-0 start-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full"></span>
+              </button>
+              
+              <div class="absolute top-[90px] end-0 w-64 bg-brand-light dark:bg-[#1E293B] border border-t-0 border-gray-200 dark:border-white/10 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0 z-50">
+                <div class="py-4 px-6 flex flex-col gap-5">
+                  <a href="admin-dashboard.html" class="flex items-center text-sm font-medium text-gray-500 hover:text-accent dark:text-gray-400 dark:hover:text-accent transition-colors">Admin Dashboard</a>
+                  <a href="client-dashboard.html" class="flex items-center text-sm font-medium text-gray-500 hover:text-accent dark:text-gray-400 dark:hover:text-accent transition-colors">Client Dashboard</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right side actions -->
+        <div class="hidden xl:flex items-center gap-4">
+          
+          <button id="theme-toggle" class="relative w-[72px] h-[34px] flex items-center bg-gray-200 dark:bg-[#1E293B] rounded-full p-1 transition-colors duration-300 focus:outline-none border border-gray-300 dark:border-gray-700 overflow-hidden" title="Toggle Theme">
+            <span class="text-[9px] font-medium text-gray-500 absolute end-2.5 dark:opacity-0 transition-opacity duration-300 tracking-wider">LIGHT</span>
+            <span class="text-[9px] font-medium text-accent absolute start-2.5 opacity-0 dark:opacity-100 transition-opacity duration-300 tracking-wider">DARK</span>
+            <div class="w-[24px] h-[24px] bg-white dark:bg-brand-dark border border-gray-200 dark:border-gray-600 rounded-full shadow-sm transform transition-transform duration-300 flex items-center justify-center rtl:dark:-translate-x-[38px] ltr:dark:translate-x-[38px] dark:translate-x-[38px] z-10">
+              <i class="fas fa-sun text-[11px] text-accent dark:hidden block"></i>
+              <i class="fas fa-moon text-[11px] text-accent hidden dark:block"></i>
+            </div>
+          </button>
+          
+          <button id="rtl-toggle" class="text-xs font-medium text-brand-muted dark:text-gray-400 hover:text-accent transition-colors duration-300 ms-2" title="Toggle RTL">RTL</button>
+
+          <div class="h-8 w-px bg-gray-200 dark:bg-gray-800 mx-2"></div>
+
+          <button type="button" onclick="window.location.href='login.html'" class="bg-accent border-2 border-accent text-white hover:bg-transparent hover:text-accent px-6 py-2.5 text-xs uppercase tracking-wider font-semibold transition-all duration-300 flex items-center gap-2">
+            <span>Login</span>
+            <i class="fas fa-arrow-right text-[10px] rtl:rotate-180"></i>
+          </button>
+          
+          <a href="register.html" class="bg-transparent border-2 border-gray-300 dark:border-gray-700 text-brand-dark dark:text-brand-light hover:border-accent dark:hover:border-accent hover:text-accent dark:hover:text-accent px-6 py-2.5 text-xs uppercase tracking-wider font-medium transition-all duration-300 flex items-center gap-2">
+            <span>Register</span>
+            <i class="fas fa-arrow-right text-[10px] rtl:rotate-180"></i>
+          </a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="xl:hidden flex items-center">
+          <button id="mobile-menu-button" class="text-gray-900 dark:text-brand-light hover:text-accent focus:outline-none transition duration-300">
+            <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path id="menu-icon" stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              <path id="close-icon" class="hidden" stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden xl:hidden bg-brand-light dark:bg-[#1E293B] border-b border-gray-200 dark:border-gray-800 shadow-2xl">
+      <div class="px-6 pt-4 pb-8 flex flex-col gap-0 max-h-[calc(100vh-90px)] overflow-y-auto">
+
+        <div class="border-b border-gray-100 dark:border-white/5">
+          <button id="mobile-home-dropdown" class="w-full flex items-center justify-between py-4 text-gray-900 dark:text-brand-light hover:text-accent transition duration-300">
+            <span class="text-xs uppercase tracking-widest font-medium">Home</span>
+            <i class="fas fa-plus text-xs transition-transform duration-300" id="mobile-home-icon"></i>
+          </button>
+          <div id="mobile-home-menu" class="hidden pb-4 flex flex-col gap-3 ps-4 border-s-2 border-accent/20 ms-2">
+            <a href="index.html" class="block text-sm font-medium text-gray-500 hover:text-accent dark:text-gray-400 transition duration-300 uppercase tracking-wider">01. Home Page</a>
+            <a href="home-2.html" class="block text-sm font-medium text-gray-500 hover:text-accent dark:text-gray-400 transition duration-300 uppercase tracking-wider">02. Home Page</a>
+          </div>
+        </div>
+
+        <a href="about.html" class="block py-4 border-b border-gray-100 dark:border-white/5 text-gray-900 dark:text-brand-light hover:text-accent transition duration-300 text-xs uppercase tracking-widest font-medium">About</a>
+
+        <!-- Services (Active mobile) -->
+        <a href="services.html" class="block py-4 border-b border-gray-100 dark:border-white/5 text-accent transition duration-300 text-xs uppercase tracking-widest font-medium" style="border-left: 3px solid #8B2635; padding-left: 12px; margin-left: -12px;">Services</a>
+
+        <a href="blog.html" class="block py-4 border-b border-gray-100 dark:border-white/5 text-gray-900 dark:text-brand-light hover:text-accent transition duration-300 text-xs uppercase tracking-widest font-medium">Blog</a>
+        <a href="contact.html" class="block py-4 border-b border-gray-100 dark:border-white/5 text-gray-900 dark:text-brand-light hover:text-accent transition duration-300 text-xs uppercase tracking-widest font-medium">Contact</a>
+
+        <div class="border-b border-gray-100 dark:border-white/5">
+          <button id="mobile-dashboard-dropdown" class="w-full flex items-center justify-between py-4 text-gray-900 dark:text-brand-light hover:text-accent transition duration-300">
+            <span class="text-xs uppercase tracking-widest font-medium">Dashboard</span>
+            <i class="fas fa-plus text-xs transition-transform duration-300" id="mobile-dashboard-icon"></i>
+          </button>
+          <div id="mobile-dashboard-menu" class="hidden pb-4 flex flex-col gap-4 ps-4 border-s-2 border-accent/20 ms-2 mt-2">
+            <a href="admin-dashboard.html" class="flex items-center text-sm font-medium text-gray-500 hover:text-accent dark:text-gray-400 transition duration-300 uppercase tracking-wider">Admin Dashboard</a>
+            <a href="client-dashboard.html" class="flex items-center text-sm font-medium text-gray-500 hover:text-accent dark:text-gray-400 transition duration-300 uppercase tracking-wider">Client Dashboard</a>
+          </div>
+        </div>
+
+        <div class="pt-8 flex flex-col gap-4">
+          <button type="button" onclick="window.location.href='login.html'" class="flex items-center justify-center w-full bg-accent border-2 border-accent text-white hover:bg-transparent hover:text-accent px-4 py-3.5 font-semibold uppercase tracking-widest text-center transition duration-300 text-xs gap-2">
+            <span>Login</span>
+            <i class="fas fa-arrow-right text-[10px] rtl:rotate-180"></i>
+          </button>
+          
+          <a href="register.html" class="flex items-center justify-center w-full bg-transparent border-2 border-gray-300 dark:border-gray-700 text-brand-dark dark:text-brand-light hover:border-accent dark:hover:border-accent hover:text-accent dark:hover:text-accent px-4 py-3.5 font-medium uppercase tracking-widest text-center transition duration-300 text-xs gap-2">
+            <span>Register</span>
+            <i class="fas fa-arrow-right text-[10px] rtl:rotate-180"></i>
+          </a>
+          
+          <div class="flex justify-between items-center pt-6 pb-2 border-t border-gray-100 dark:border-white/5 mt-4">
+            <button id="mobile-theme-toggle" class="bg-gray-100 dark:bg-[#1a1a1a] border border-gray-200 dark:border-gray-700 rounded-full px-4 py-2 transition-colors flex items-center text-xs font-medium uppercase tracking-widest">
+              <span class="dark:hidden flex items-center text-accent"><i class="fas fa-sun me-2"></i> Light Active</span>
+              <span class="hidden dark:flex items-center text-accent"><i class="fas fa-moon me-2"></i> Dark Active</span>
+            </button>
+            <button id="mobile-rtl-toggle" class="text-brand-muted dark:text-gray-400 hover:text-accent transition-colors flex items-center text-xs font-medium uppercase tracking-widest">
+              <i class="fas fa-language me-2 text-lg"></i> RTL
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="flex-grow flex flex-col pt-[90px]">
+
+    <!-- ============================================ -->
+    <!-- SECTION 1: HERO / PAGE HEADER -->
+    <!-- ============================================ -->
+    <section class="relative min-h-[500px] lg:min-h-[580px] pt-[120px] pb-[80px] lg:pt-[140px] lg:pb-[100px] flex items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: url('images/s3.jpg');">
+      <div class="absolute inset-0 bg-black/70 z-0"></div>
+      <div class="absolute top-20 start-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-20 end-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center">
+        <div class="text-white flex flex-col gap-6 items-center animate-fade-in max-w-3xl mx-auto">
+          <p class="text-sm font-bold tracking-[0.25em] text-accent uppercase">Our Services</p>
+          <h1 class="text-5xl sm:text-6xl lg:text-7xl font-semibold leading-tight tracking-tight">
+            Complete Eye Care, <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-light">Expertly Delivered.</span>
+          </h1>
+          <p class="text-lg text-white/90 leading-relaxed font-medium">
+            From routine exams to advanced laser surgery, every service is designed around your comfort, safety, and long-term vision health.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 pt-4">
+            <a href="contact.html" class="inline-flex items-center justify-center px-8 py-4 bg-accent text-white hover:bg-secondary font-medium uppercase tracking-widest text-xs transition-all duration-300 gap-2 shadow-lg shadow-accent/30">
+              <span>Book an Appointment</span>
+              <i class="fas fa-arrow-right rtl:rotate-180"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 2: COMPREHENSIVE EYE EXAM (Text + Image) -->
+    <!-- ============================================ -->
+    <section class="py-24 bg-white dark:bg-brand-dark relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="flex flex-col gap-6">
+            <span class="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.25em] text-accent uppercase">
+              <span class="w-8 h-px bg-accent"></span> Service 01
+            </span>
+            <h2 class="text-4xl md:text-5xl font-serif font-bold text-brand-dark dark:text-brand-light leading-tight">Comprehensive Eye Exam</h2>
+            <p class="text-lg text-brand-muted dark:text-gray-400 leading-relaxed">
+              A thorough assessment of your vision and eye health using digital refraction, tonometry, and retinal imaging. We detect issues early — from refractive errors to glaucoma — before they affect your daily life.
+            </p>
+            <ul class="flex flex-col gap-3">
+              <li class="flex items-center gap-3 text-brand-muted dark:text-gray-400"><i class="fas fa-check-circle text-accent"></i> Digital visual acuity & refraction testing</li>
+              <li class="flex items-center gap-3 text-brand-muted dark:text-gray-400"><i class="fas fa-check-circle text-accent"></i> Eye pressure (glaucoma) screening</li>
+              <li class="flex items-center gap-3 text-brand-muted dark:text-gray-400"><i class="fas fa-check-circle text-accent"></i> Dilated retinal health inspection</li>
+            </ul>
+            <a href="service-details.html?service=comprehensive-eye-exam" class="inline-flex items-center justify-center px-8 py-4 bg-accent text-white hover:bg-secondary font-medium uppercase tracking-widest text-xs transition-all duration-300 gap-2 shadow-lg shadow-accent/30 self-start mt-2">
+              <span>View Details</span>
+              <i class="fas fa-arrow-right rtl:rotate-180"></i>
+            </a>
+          </div>
+          <div class="relative">
+            <div class="relative overflow-hidden rounded-2xl shadow-2xl h-[380px] lg:h-[460px]">
+              <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Comprehensive eye exam" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+            </div>
+            <div class="absolute -bottom-6 -right-4 lg:right-8 bg-white dark:bg-[#1E293B] rounded-2xl shadow-xl p-5 border border-gray-100 dark:border-white/10">
+              <p class="text-3xl font-serif font-bold text-accent">45 min</p>
+              <p class="text-[11px] font-semibold uppercase tracking-wider text-brand-muted dark:text-gray-400">Avg. Visit Time</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 3: CATARACT SURGERY (Image + Text, reversed) -->
+    <!-- ============================================ -->
+    <section class="py-24 bg-brand-light dark:bg-[#0F172A]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="relative order-2 lg:order-1">
+            <div class="relative overflow-hidden rounded-2xl shadow-2xl h-[380px] lg:h-[460px]">
+              <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cataract surgery" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+            </div>
+            <div class="absolute -bottom-6 -left-4 lg:left-8 bg-white dark:bg-[#1E293B] rounded-2xl shadow-xl p-5 border border-gray-100 dark:border-white/10">
+              <p class="text-3xl font-serif font-bold text-accent">30 min</p>
+              <p class="text-[11px] font-semibold uppercase tracking-wider text-brand-muted dark:text-gray-400">Procedure Time</p>
+            </div>
+          </div>
+          <div class="flex flex-col gap-6 order-1 lg:order-2">
+            <span class="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.25em] text-accent uppercase">
+              <span class="w-8 h-px bg-accent"></span> Service 02
+            </span>
+            <h2 class="text-4xl md:text-5xl font-serif font-bold text-brand-dark dark:text-brand-light leading-tight">Cataract Surgery</h2>
+            <p class="text-lg text-brand-muted dark:text-gray-400 leading-relaxed">
+              Restore clear vision with bladeless, laser-assisted cataract surgery. Our surgeons use premium intraocular lenses (IOLs) tailored to your lifestyle — whether you want sharp distance vision or reading clarity.
+            </p>
+            <ul class="flex flex-col gap-3">
+              <li class="flex items-center gap-3 text-brand-muted dark:text-gray-400"><i class="fas fa-check-circle text-accent"></i> Femtosecond laser technology</li>
+              <li class="flex items-center gap-3 text-brand-muted dark:text-gray-400"><i class="fas fa-check-circle text-accent"></i> Premium monofocal & multifocal IOLs</li>
+              <li class="flex items-center gap-3 text-brand-muted dark:text-gray-400"><i class="fas fa-check-circle text-accent"></i> Same-day discharge, rapid recovery</li>
+            </ul>
+            <a href="service-details.html?service=cataract-surgery" class="inline-flex items-center justify-center px-8 py-4 bg-accent text-white hover:bg-secondary font-medium uppercase tracking-widest text-xs transition-all duration-300 gap-2 shadow-lg shadow-accent/30 self-start mt-2">
+              <span>View Details</span>
+              <i class="fas fa-arrow-right rtl:rotate-180"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 4: LASIK VISION CORRECTION (Text + Image) -->
+    <!-- ============================================ -->
+    <section class="py-24 bg-white dark:bg-brand-dark border-t border-gray-100 dark:border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="flex flex-col gap-6">
+            <span class="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.25em] text-accent uppercase">
+              <span class="w-8 h-px bg-accent"></span> Service 03
+            </span>
+            <h2 class="text-4xl md:text-5xl font-serif font-bold text-brand-dark dark:text-brand-light leading-tight">LASIK Vision Correction</h2>
+            <p class="text-lg text-brand-muted dark:text-gray-400 leading-relaxed">
+              Say goodbye to glasses and contacts. Our bladeless LASIK procedure reshapes the cornea with precision laser technology, correcting nearsightedness, farsightedness, and astigmatism — often in under 20 minutes.
+            </p>
+            <ul class="flex flex-col gap-3">
+              <li class="flex items-center gap-3 text-brand-muted dark:text-gray-400"><i class="fas fa-check-circle text-accent"></i> Bladeless, all-laser procedure</li>
+              <li class="flex items-center gap-3 text-brand-muted dark:text-gray-400"><i class="fas fa-check-circle text-accent"></i> Custom wavefront-guided treatment</li>
+              <li class="flex items-center gap-3 text-brand-muted dark:text-gray-400"><i class="fas fa-check-circle text-accent"></i> Most patients return to work next day</li>
+            </ul>
+            <a href="service-details.html?service=lasik" class="inline-flex items-center justify-center px-8 py-4 bg-accent text-white hover:bg-secondary font-medium uppercase tracking-widest text-xs transition-all duration-300 gap-2 shadow-lg shadow-accent/30 self-start mt-2">
+              <span>View Details</span>
+              <i class="fas fa-arrow-right rtl:rotate-180"></i>
+            </a>
+          </div>
+          <div class="relative">
+            <div class="relative overflow-hidden rounded-2xl shadow-2xl h-[380px] lg:h-[460px]">
+              <img src="images/a1.jpg" alt="LASIK laser eye surgery" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+            </div>
+            <div class="absolute -bottom-6 -right-4 lg:right-8 bg-white dark:bg-[#1E293B] rounded-2xl shadow-xl p-5 border border-gray-100 dark:border-white/10">
+              <p class="text-3xl font-serif font-bold text-accent">20/20</p>
+              <p class="text-[11px] font-semibold uppercase tracking-wider text-brand-muted dark:text-gray-400">Typical Outcome</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 5: PEDIATRIC EYE CARE (Image + Text, reversed) -->
+    <!-- ============================================ -->
+    <section class="py-24 bg-brand-light dark:bg-[#0F172A]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="relative order-2 lg:order-1">
+            <div class="relative overflow-hidden rounded-2xl shadow-2xl h-[380px] lg:h-[460px]">
+              <img src="images/s1.jpg" alt="Pediatric eye care" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+            </div>
+            <div class="absolute -bottom-6 -left-4 lg:left-8 bg-white dark:bg-[#1E293B] rounded-2xl shadow-xl p-5 border border-gray-100 dark:border-white/10">
+              <p class="text-3xl font-serif font-bold text-accent">0–18</p>
+              <p class="text-[11px] font-semibold uppercase tracking-wider text-brand-muted dark:text-gray-400">Years Served</p>
+            </div>
+          </div>
+          <div class="flex flex-col gap-6 order-1 lg:order-2">
+            <span class="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.25em] text-accent uppercase">
+              <span class="w-8 h-px bg-accent"></span> Service 04
+            </span>
+            <h2 class="text-4xl md:text-5xl font-serif font-bold text-brand-dark dark:text-brand-light leading-tight">Pediatric Eye Care</h2>
+            <p class="text-lg text-brand-muted dark:text-gray-400 leading-relaxed">
+              Gentle, child-friendly exams that make kids feel at ease. We screen for lazy eye, crossed eyes, and early refractive errors — and build treatment plans that support healthy visual development.
+            </p>
+            <ul class="flex flex-col gap-3">
+              <li class="flex items-center gap-3 text-brand-muted dark:text-gray-400"><i class="fas fa-check-circle text-accent"></i> Amblyopia (lazy eye) treatment</li>
+              <li class="flex items-center gap-3 text-brand-muted dark:text-gray-400"><i class="fas fa-check-circle text-accent"></i> Strabismus (eye alignment) care</li>
+              <li class="flex items-center gap-3 text-brand-muted dark:text-gray-400"><i class="fas fa-check-circle text-accent"></i> Myopia control & vision therapy</li>
+            </ul>
+            <a href="service-details.html?service=pediatric-eye-care" class="inline-flex items-center justify-center px-8 py-4 bg-accent text-white hover:bg-secondary font-medium uppercase tracking-widest text-xs transition-all duration-300 gap-2 shadow-lg shadow-accent/30 self-start mt-2">
+              <span>View Details</span>
+              <i class="fas fa-arrow-right rtl:rotate-180"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 6: RETINA & GLAUCOMA CARE (Text + Image) -->
+    <!-- ============================================ -->
+    <section class="py-24 bg-white dark:bg-brand-dark border-t border-gray-100 dark:border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="flex flex-col gap-6">
+            <span class="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.25em] text-accent uppercase">
+              <span class="w-8 h-px bg-accent"></span> Service 05
+            </span>
+            <h2 class="text-4xl md:text-5xl font-serif font-bold text-brand-dark dark:text-brand-light leading-tight">Retina & Glaucoma Care</h2>
+            <p class="text-lg text-brand-muted dark:text-gray-400 leading-relaxed">
+              Advanced diagnostics and treatment for sight-threatening conditions like diabetic retinopathy, macular degeneration, and glaucoma. Our retina specialists use OCT imaging and targeted therapies to preserve vision.
+            </p>
+            <ul class="flex flex-col gap-3">
+              <li class="flex items-center gap-3 text-brand-muted dark:text-gray-400"><i class="fas fa-check-circle text-accent"></i> OCT retinal imaging & monitoring</li>
+              <li class="flex items-center gap-3 text-brand-muted dark:text-gray-400"><i class="fas fa-check-circle text-accent"></i> Intravitreal injections & laser therapy</li>
+              <li class="flex items-center gap-3 text-brand-muted dark:text-gray-400"><i class="fas fa-check-circle text-accent"></i> Glaucoma pressure management</li>
+            </ul>
+            <a href="service-details.html?service=retina-glaucoma-care" class="inline-flex items-center justify-center px-8 py-4 bg-accent text-white hover:bg-secondary font-medium uppercase tracking-widest text-xs transition-all duration-300 gap-2 shadow-lg shadow-accent/30 self-start mt-2">
+              <span>View Details</span>
+              <i class="fas fa-arrow-right rtl:rotate-180"></i>
+            </a>
+          </div>
+          <div class="relative">
+            <div class="relative overflow-hidden rounded-2xl shadow-2xl h-[380px] lg:h-[460px]">
+              <img src="images/s2.jpg" alt="Retina and glaucoma care" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+            </div>
+            <div class="absolute -bottom-6 -right-4 lg:right-8 bg-white dark:bg-[#1E293B] rounded-2xl shadow-xl p-5 border border-gray-100 dark:border-white/10">
+              <p class="text-3xl font-serif font-bold text-accent">OCT</p>
+              <p class="text-[11px] font-semibold uppercase tracking-wider text-brand-muted dark:text-gray-400">High-Res Imaging</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 7: CTA / BOOK APPOINTMENT -->
+    <!-- ============================================ -->
+    <section class="py-24 bg-brand-light dark:bg-[#0F172A]">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gradient-to-br from-brand-dark to-[#1E293B] rounded-[3rem] p-10 md:p-20 relative overflow-hidden shadow-2xl">
+          <div class="absolute top-0 right-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] opacity-10 bg-cover bg-center"></div>
+          <div class="absolute -top-24 -right-24 w-64 h-64 bg-accent/30 rounded-full blur-3xl"></div>
+          <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-accent/30 rounded-full blur-3xl"></div>
+          
+          <div class="relative z-10 text-center">
+            <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-6">Not Sure Which Service You Need?</h2>
+            <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+              Book a consultation and our specialists will guide you through the right treatment plan for your eyes.
+            </p>
+            
+            <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
+              <input 
+                type="email" 
+                placeholder="Enter your email address" 
+                class="flex-grow px-6 py-4 rounded-full bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition"
+                required
+              >
+              <button 
+                type="submit" 
+                class="px-8 py-4 rounded-full bg-accent text-white font-bold uppercase tracking-widest text-sm hover:bg-secondary transition-colors whitespace-nowrap shadow-lg shadow-accent/20"
+              >
+                Book Now
+              </button>
+            </form>
+            <p class="text-gray-400 text-sm mt-6">
+              We respect your privacy. Your information is safe with us. <a href="#" class="text-accent hover:underline">Privacy Policy</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-brand-light dark:bg-brand-dark text-brand-dark dark:text-brand-light pt-24 pb-12 mt-auto border-t border-gray-200 dark:border-white/10 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        
+        <!-- Column 1: Brand -->
+        <div>
+          <a href="index.html" class="flex items-center gap-3 mb-6 group w-fit">
+            <div class="w-10 h-10 bg-accent rounded-xl flex items-center justify-center shadow-md shadow-accent/20 transition-all duration-300 group-hover:scale-105 group-hover:bg-secondary shrink-0">
+              <svg class="w-5 h-5 text-white transition-colors fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+              </svg>
+            </div>
+            <div class="flex flex-col">
+              <span class="text-2xl font-black tracking-tight uppercase text-brand-dark dark:text-brand-light leading-none">Vision<span class="text-accent">Care</span></span>
+              <span class="text-[9px] font-bold tracking-[0.22em] text-accent uppercase mt-1 leading-none">Ophthalmology & Eye Surgery</span>
+            </div>
+          </a>
+          <p class="text-brand-muted dark:text-gray-400 mb-8 font-medium leading-relaxed text-base">
+            Providing advanced eye care and surgical treatments with compassion and precision. Your vision is our priority.
+          </p>
+          <div class="flex gap-4">
+            <a href="#" class="w-12 h-12 border border-gray-300 dark:border-white/20 text-brand-dark dark:text-brand-light hover:border-accent hover:text-accent flex items-center justify-center transition-all duration-300 rounded-sm"><i class="fab fa-facebook-f text-base"></i></a>
+            <a href="#" class="w-12 h-12 border border-gray-300 dark:border-white/20 text-brand-dark dark:text-brand-light hover:border-accent hover:text-accent flex items-center justify-center transition-all duration-300 rounded-sm"><i class="fab fa-instagram text-base"></i></a>
+            <a href="#" class="w-12 h-12 border border-gray-300 dark:border-white/20 text-brand-dark dark:text-brand-light hover:border-accent hover:text-accent flex items-center justify-center transition-all duration-300 rounded-sm"><i class="fab fa-x-twitter text-base"></i></a>
+            <a href="#" class="w-12 h-12 border border-gray-300 dark:border-white/20 text-brand-dark dark:text-brand-light hover:border-accent hover:text-accent flex items-center justify-center transition-all duration-300 rounded-sm"><i class="fab fa-youtube text-base"></i></a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div>
+          <h4 class="text-sm uppercase tracking-[0.2em] font-medium mb-8 text-brand-dark dark:text-brand-light font-bold">Quick Links</h4>
+          <ul class="flex flex-col gap-5">
+            <li><a href="index.html" class="text-base text-brand-muted dark:text-gray-400 hover:text-accent transition-colors duration-300 font-medium">Home</a></li>
+            <li><a href="about.html" class="text-base text-brand-muted dark:text-gray-400 hover:text-accent transition-colors duration-300 font-medium">About Us</a></li>
+            <li><a href="blog.html" class="text-base text-brand-muted dark:text-gray-400 hover:text-accent transition-colors duration-300 font-medium">Eye Health Blog</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Our Services -->
+        <div>
+          <h4 class="text-sm uppercase tracking-[0.2em] font-medium mb-8 text-brand-dark dark:text-brand-light font-bold">Our Services</h4>
+          <ul class="flex flex-col gap-5">
+            <li><a href="service-details.html?service=comprehensive-eye-exam" class="text-base text-brand-muted dark:text-gray-400 hover:text-accent transition-colors duration-300 font-medium">Eye Checkup</a></li>
+            <li><a href="service-details.html?service=cataract-surgery" class="text-base text-brand-muted dark:text-gray-400 hover:text-accent transition-colors duration-300 font-medium">Cataract Surgery</a></li>
+            <li><a href="service-details.html?service=lasik" class="text-base text-brand-muted dark:text-gray-400 hover:text-accent transition-colors duration-300 font-medium">LASIK</a></li>
+            <li><a href="service-details.html?service=pediatric-eye-care" class="text-base text-brand-muted dark:text-gray-400 hover:text-accent transition-colors duration-300 font-medium">Pediatric Eye Care</a></li>
+            <li><a href="service-details.html?service=retina-glaucoma-care" class="text-base text-brand-muted dark:text-gray-400 hover:text-accent transition-colors duration-300 font-medium">Retina Treatment</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Contact Info -->
+        <div>
+          <h4 class="text-sm uppercase tracking-[0.2em] font-medium mb-8 text-brand-dark dark:text-brand-light font-bold">Contact Us</h4>
+          <ul class="flex flex-col gap-6">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt text-accent mt-1 me-4 text-base"></i>
+              <span class="text-base text-brand-muted dark:text-gray-400 font-medium">123 Vision Lane, Medical District, Salem, Tamil Nadu, India</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-phone text-accent me-4 text-base"></i>
+              <a href="tel:+919876543210" class="text-base text-brand-muted dark:text-gray-400 hover:text-accent transition-colors font-medium">+91 98765 43210</a>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-envelope text-accent me-4 text-base"></i>
+              <a href="mailto:info@visioncare.com" class="text-base text-brand-muted dark:text-gray-400 hover:text-accent transition-colors font-medium">info@visioncare.com</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Footer bottom -->
+      <div class="border-t border-gray-200 dark:border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-brand-muted dark:text-gray-400 text-sm tracking-wider uppercase mb-4 md:mb-0 font-medium">
+          © 2026 VisionCare Ophthalmology & Eye Surgery Center. All rights reserved.
+        </p>
+        <div class="flex gap-6">
+          <a href="login.html" class="text-brand-muted dark:text-gray-400 hover:text-accent text-sm tracking-wider uppercase font-medium transition-colors duration-300">Patient Login</a>
+          <a href="#" class="text-brand-muted dark:text-gray-400 hover:text-accent text-sm tracking-wider uppercase font-medium transition-colors duration-300">Privacy</a>
+          <a href="#" class="text-brand-muted dark:text-gray-400 hover:text-accent text-sm tracking-wider uppercase font-medium transition-colors duration-300">Terms</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+    const html = document.documentElement;
+
+    function toggleTheme() {
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+
+    if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+    if (mobileThemeToggle) mobileThemeToggle.addEventListener('click', toggleTheme);
+    if (localStorage.getItem('theme') === 'dark') html.classList.add('dark');
+
+    // RTL Toggle
+    const rtlToggle = document.getElementById('rtl-toggle');
+    const mobileRtlToggle = document.getElementById('mobile-rtl-toggle');
+
+    function toggleRTL() {
+      if (html.getAttribute('dir') === 'rtl') {
+        html.removeAttribute('dir');
+        localStorage.setItem('direction', 'ltr');
+      } else {
+        html.setAttribute('dir', 'rtl');
+        localStorage.setItem('direction', 'rtl');
+      }
+    }
+
+    if (rtlToggle) rtlToggle.addEventListener('click', toggleRTL);
+    if (mobileRtlToggle) mobileRtlToggle.addEventListener('click', toggleRTL);
+    if (localStorage.getItem('direction') === 'rtl') html.setAttribute('dir', 'rtl');
+
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      menuIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+      if (!mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('flex');
+      } else {
+          mobileMenu.classList.remove('flex');
+      }
+    });
+
+    // Mobile Dropdowns Toggle Function
+    function setupMobileDropdown(dropdownId, menuId, iconId) {
+      const dropdown = document.getElementById(dropdownId);   
+      const menu = document.getElementById(menuId);
+      const icon = document.getElementById(iconId);
+      
+      if(dropdown && menu && icon) {
+        dropdown.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+          if(menu.classList.contains('hidden')) {
+            icon.classList.remove('fa-minus');
+            icon.classList.add('fa-plus');
+            menu.classList.remove('flex');
+          } else {
+            icon.classList.remove('fa-plus');
+            icon.classList.add('fa-minus');
+            menu.classList.add('flex');
+          }
+        });
+      }
+    }
+
+    // Initialize dropdowns
+    setupMobileDropdown('mobile-home-dropdown', 'mobile-home-menu', 'mobile-home-icon');
+    setupMobileDropdown('mobile-dashboard-dropdown', 'mobile-dashboard-menu', 'mobile-dashboard-icon');
+
+  </script>
+</body>
+</html>

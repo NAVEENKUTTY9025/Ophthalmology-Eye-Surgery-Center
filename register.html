@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - VisionCare Ophthalmology & Eye Surgery Center</title>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="alternate icon" href="favicon.ico">
+  <meta name="description" content="Create your VisionCare patient account.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
+  <script>
+    tailwind.config = { 
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            'accent': '#8B2635',        // Burgundy Red (Premium)
+            'secondary': '#6F1D2A',     // Deep Burgundy for hover/depth
+            'accent-light': '#B3394B',  // Vibrant Burgundy highlight
+            'gold': '#C49A38',          // Warm Gold (Luxury accent)
+            'purple': '#7040A0',        // Deep Purple (Modern accent)
+            'brand-dark': '#000000',
+            'brand-light': '#FFFFFF',
+            'brand-muted': '#4B5563'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    [dir="rtl"] { direction: rtl; }
+
+    /* Lock page on standard viewports, graceful scroll on very small screens */
+    html, body {
+      min-height: 100%;
+    }
+    @media (min-height: 600px) {
+      html, body {
+        height: 100%;
+        overflow: hidden;
+      }
+    }
+
+    /* Social brand hover colors */
+    .btn-google:hover   { background-color: #ea4335; color: #fff; border-color: #ea4335; }
+    .btn-facebook:hover { background-color: #1877F2; color: #fff; border-color: #1877F2; }
+    .btn-apple:hover    { background-color: #000000; color: #fff; border-color: #000000; }
+    .dark .btn-apple:hover { background-color: #333333; color: #fff; border-color: #333333; }
+    .dark .btn-google:hover   { background-color: #ea4335; color: #fff; border-color: #ea4335; }
+    .dark .btn-facebook:hover { background-color: #1877F2; color: #fff; border-color: #1877F2; }
+
+    /* Prevent mobile zoom while keeping desktop typography tight */
+    input { font-size: 14px; }
+    @media (max-width: 640px) {
+      input { font-size: 16px; }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body class="font-sans antialiased transition-colors duration-300 bg-brand-light dark:bg-brand-dark flex flex-col min-h-screen">
+
+  <!-- ============ TOP BAR: Logo (left) + Theme/RTL toggles (right) ============ -->
+  <header class="absolute top-0 left-0 right-0 z-50">
+    <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-[64px] sm:h-[72px]">
+
+        <!-- Logo → index.html -->
+        <div class="flex-shrink-0">
+          <a href="index.html" class="flex items-center gap-3 group">
+            <div class="w-9 h-9 sm:w-10 sm:h-10 bg-accent rounded-xl flex items-center justify-center shadow-md shadow-accent/20 transition-all duration-300 group-hover:scale-105 group-hover:bg-secondary shrink-0">
+              <svg class="w-5 h-5 text-white transition-colors fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+              </svg>
+            </div>
+            <div class="flex flex-col">
+              <span class="text-xl sm:text-2xl font-black tracking-tight text-brand-dark dark:text-brand-light uppercase leading-none">Vision<span class="text-accent">Care</span></span>
+              <span class="text-[8px] sm:text-[9px] font-bold tracking-[0.22em] text-accent uppercase mt-1 leading-none">Ophthalmology & Eye Surgery</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Theme + RTL toggles (top-right) -->
+        <div class="flex items-center gap-3 sm:gap-4">
+          <button id="theme-toggle" class="relative w-[64px] sm:w-[72px] h-[30px] sm:h-[34px] flex items-center bg-gray-200 dark:bg-[#1E293B] rounded-full p-1 transition-colors duration-300 focus:outline-none border border-gray-300 dark:border-gray-700 overflow-hidden" title="Toggle Theme">
+            <span class="text-[8px] sm:text-[9px] font-medium text-gray-500 absolute end-2.5 dark:opacity-0 transition-opacity duration-300 tracking-wider">LIGHT</span>
+            <span class="text-[8px] sm:text-[9px] font-medium text-accent absolute start-2.5 opacity-0 dark:opacity-100 transition-opacity duration-300 tracking-wider">DARK</span>
+            <div class="w-[20px] sm:w-[24px] h-[20px] sm:h-[24px] bg-white dark:bg-brand-dark border border-gray-200 dark:border-gray-600 rounded-full shadow-sm transform transition-transform duration-300 flex items-center justify-center rtl:dark:-translate-x-[34px] sm:rtl:dark:-translate-x-[38px] ltr:dark:translate-x-[34px] sm:ltr:dark:translate-x-[38px] dark:translate-x-[34px] sm:dark:translate-x-[38px] z-10">
+              <i class="fas fa-sun text-[9px] sm:text-[11px] text-accent dark:hidden block"></i>
+              <i class="fas fa-moon text-[9px] sm:text-[11px] text-accent hidden dark:block"></i>
+            </div>
+          </button>
+          <button id="rtl-toggle" class="text-xs font-medium text-gray-400 hover:text-accent transition-colors duration-300" title="Toggle RTL">RTL</button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ CENTERED COMPACT REGISTER CONTAINER ============ -->
+  <main class="flex-1 flex items-center justify-center px-4 pt-16 sm:pt-20 pb-3 overflow-y-auto sm:overflow-hidden">
+    <div class="w-full max-w-sm">
+
+      <div class="bg-white dark:bg-[#1E293B] rounded-2xl shadow-xl border border-gray-100 dark:border-white/10 p-5 sm:p-6">
+
+        <!-- Heading -->
+        <div class="text-center mb-3">
+          <h1 class="text-xl sm:text-2xl font-serif font-bold text-brand-dark dark:text-brand-light">Create Account</h1>
+          <p class="text-[11px] sm:text-xs text-brand-muted dark:text-gray-400 mt-0.5">Join the VisionCare patient portal</p>
+        </div>
+
+        <!-- Register Form -->
+        <form class="flex flex-col gap-2.5" action="#" method="POST">
+
+          <!-- Full Name -->
+          <div>
+            <label for="fullname" class="block text-[10px] font-semibold uppercase tracking-wider text-brand-muted dark:text-gray-400 mb-0.5">Full Name</label>
+            <div class="relative">
+              <i class="fas fa-user absolute top-1/2 -translate-y-1/2 start-3 text-gray-400 text-xs"></i>
+              <input
+                type="text"
+                id="fullname"
+                name="fullname"
+                placeholder="John Doe"
+                required
+                class="w-full ps-8 pe-3 py-2 rounded-lg bg-gray-50 dark:bg-[#0F172A] border border-gray-200 dark:border-gray-700 text-sm text-brand-dark dark:text-brand-light placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition"
+              >
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label for="email" class="block text-[10px] font-semibold uppercase tracking-wider text-brand-muted dark:text-gray-400 mb-0.5">Email Address</label>
+            <div class="relative">
+              <i class="fas fa-envelope absolute top-1/2 -translate-y-1/2 start-3 text-gray-400 text-xs"></i>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                required
+                class="w-full ps-8 pe-3 py-2 rounded-lg bg-gray-50 dark:bg-[#0F172A] border border-gray-200 dark:border-gray-700 text-sm text-brand-dark dark:text-brand-light placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition"
+              >
+            </div>
+          </div>
+
+          <!-- Password -->
+          <div>
+            <label for="password" class="block text-[10px] font-semibold uppercase tracking-wider text-brand-muted dark:text-gray-400 mb-0.5">Password</label>
+            <div class="relative">
+              <i class="fas fa-lock absolute top-1/2 -translate-y-1/2 start-3 text-gray-400 text-xs"></i>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="••••••••"
+                required
+                class="w-full ps-8 pe-9 py-2 rounded-lg bg-gray-50 dark:bg-[#0F172A] border border-gray-200 dark:border-gray-700 text-sm text-brand-dark dark:text-brand-light placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition"
+              >
+              <button type="button" id="toggle-password" class="absolute top-1/2 -translate-y-1/2 end-3 text-gray-400 hover:text-accent transition" aria-label="Show password">
+                <i class="fas fa-eye text-xs" id="eye-icon"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Confirm Password -->
+          <div>
+            <label for="confirm-password" class="block text-[10px] font-semibold uppercase tracking-wider text-brand-muted dark:text-gray-400 mb-0.5">Confirm Password</label>
+            <div class="relative">
+              <i class="fas fa-lock absolute top-1/2 -translate-y-1/2 start-3 text-gray-400 text-xs"></i>
+              <input
+                type="password"
+                id="confirm-password"
+                name="confirm-password"
+                placeholder="••••••••"
+                required
+                class="w-full ps-8 pe-9 py-2 rounded-lg bg-gray-50 dark:bg-[#0F172A] border border-gray-200 dark:border-gray-700 text-sm text-brand-dark dark:text-brand-light placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition"
+              >
+              <button type="button" id="toggle-confirm-password" class="absolute top-1/2 -translate-y-1/2 end-3 text-gray-400 hover:text-accent transition" aria-label="Show confirm password">
+                <i class="fas fa-eye text-xs" id="eye-icon-confirm"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Terms -->
+          <label class="flex items-center gap-2 cursor-pointer select-none">
+            <input type="checkbox" name="terms" required class="w-3.5 h-3.5 rounded border-gray-300 dark:border-gray-600 text-accent focus:ring-accent">
+            <span class="text-[11px] text-brand-muted dark:text-gray-400 leading-snug">
+              I agree to the
+              <a href="#" class="font-semibold text-accent hover:text-secondary transition-colors">Terms</a> &
+              <a href="#" class="font-semibold text-accent hover:text-secondary transition-colors">Privacy Policy</a>
+            </span>
+          </label>
+
+          <!-- Create Account Button -->
+          <button
+            type="submit"
+            class="w-full bg-accent text-white font-bold uppercase tracking-wider text-xs py-2.5 rounded-lg hover:bg-secondary transition-all duration-300 shadow-md shadow-accent/30 flex items-center justify-center gap-2 mt-0.5"
+          >
+            <span>Create Account</span>
+            <i class="fas fa-arrow-right text-[10px] rtl:rotate-180"></i>
+          </button>
+
+        </form>
+
+        <!-- Divider -->
+        <div class="flex items-center gap-3 my-2.5">
+          <div class="flex-1 h-px bg-gray-200 dark:bg-gray-700"></div>
+          <span class="text-[10px] font-medium uppercase tracking-wider text-gray-400">or</span>
+          <div class="flex-1 h-px bg-gray-200 dark:bg-gray-700"></div>
+        </div>
+
+        <!-- Social Sign-up Buttons -->
+        <div class="grid grid-cols-3 gap-2">
+
+          <!-- Google -->
+          <a href="#" class="btn-google flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg border border-gray-200 dark:border-gray-700 text-xs font-semibold text-brand-dark dark:text-brand-light transition-all duration-300" title="Sign up with Google">
+            <svg class="w-4 h-4 shrink-0" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+              <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+              <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+              <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+            </svg>
+            <span class="text-[11px] font-medium hidden sm:inline">Google</span>
+          </a>
+
+          <!-- Facebook -->
+          <a href="#" class="btn-facebook flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg border border-gray-200 dark:border-gray-700 text-xs font-semibold text-brand-dark dark:text-brand-light transition-all duration-300" title="Sign up with Facebook">
+            <svg class="w-4 h-4 shrink-0" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#1877F2" d="M48 24C48 10.745 37.255 0 24 0S0 10.745 0 24c0 11.979 8.776 21.908 20.25 23.708v-16.77h-6.094V24h6.094v-5.288c0-6.017 3.583-9.34 9.065-9.34 2.626 0 5.372.469 5.372.469v5.906h-3.026c-2.981 0-3.911 1.85-3.911 3.748V24h6.656l-1.064 6.938H27.75v16.77C39.224 45.908 48 35.979 48 24z"/>
+              <path fill="#FFFFFF" d="M33.34 30.938L34.404 24H27.75v-4.505c0-1.898.93-3.748 3.911-3.748h3.026V9.841s-2.746-.469-5.372-.469c-5.482 0-9.065 3.323-9.065 9.34V24h-6.094v6.938h6.094v16.77a24.14 24.14 0 007.5 0v-16.77h5.588z"/>
+            </svg>
+            <span class="text-[11px] font-medium hidden sm:inline">Facebook</span>
+          </a>
+
+          <!-- Apple -->
+          <a href="#" class="btn-apple flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg border border-gray-200 dark:border-gray-700 text-xs font-semibold text-brand-dark dark:text-brand-light transition-all duration-300" title="Sign up with Apple">
+            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+            <span class="text-[11px] font-medium hidden sm:inline">Apple</span>
+          </a>
+
+        </div>
+
+        <!-- Login link -->
+        <p class="text-center text-xs text-brand-muted dark:text-gray-400 mt-2.5">
+          Already have an account?
+          <a href="login.html" class="font-semibold text-accent hover:text-secondary transition-colors">Sign in</a>
+        </p>
+
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+
+    function toggleTheme() {
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+
+    if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+    if (localStorage.getItem('theme') === 'dark') html.classList.add('dark');
+
+    // RTL Toggle
+    const rtlToggle = document.getElementById('rtl-toggle');
+
+    function toggleRTL() {
+      if (html.getAttribute('dir') === 'rtl') {
+        html.removeAttribute('dir');
+        localStorage.setItem('direction', 'ltr');
+      } else {
+        html.setAttribute('dir', 'rtl');
+        localStorage.setItem('direction', 'rtl');
+      }
+    }
+
+    if (rtlToggle) rtlToggle.addEventListener('click', toggleRTL);
+    if (localStorage.getItem('direction') === 'rtl') html.setAttribute('dir', 'rtl');
+
+    // Show / Hide Password
+    const togglePassword = document.getElementById('toggle-password');
+    const passwordInput = document.getElementById('password');
+    const eyeIcon = document.getElementById('eye-icon');
+
+    if (togglePassword && passwordInput && eyeIcon) {
+      togglePassword.addEventListener('click', () => {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        eyeIcon.classList.toggle('fa-eye');
+        eyeIcon.classList.toggle('fa-eye-slash');
+      });
+    }
+
+    // Show / Hide Confirm Password
+    const toggleConfirmPassword = document.getElementById('toggle-confirm-password');
+    const confirmPasswordInput = document.getElementById('confirm-password');
+    const eyeIconConfirm = document.getElementById('eye-icon-confirm');
+
+    if (toggleConfirmPassword && confirmPasswordInput && eyeIconConfirm) {
+      toggleConfirmPassword.addEventListener('click', () => {
+        const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        confirmPasswordInput.setAttribute('type', type);
+        eyeIconConfirm.classList.toggle('fa-eye');
+        eyeIconConfirm.classList.toggle('fa-eye-slash');
+      });
+    }
+  </script>
+</body>
+</html>
