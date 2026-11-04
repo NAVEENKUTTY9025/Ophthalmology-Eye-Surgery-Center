@@ -73,11 +73,13 @@
     /* Horizontal scroll strip */
     .strip-scroll {
       scrollbar-width: thin;
-      scrollbar-color: #8B2635 transparent;
+      scrollbar-color: #8B2635 rgba(139, 38, 53, 0.1);
+      -webkit-overflow-scrolling: touch;
     }
-    .strip-scroll::-webkit-scrollbar { height: 6px; }
-    .strip-scroll::-webkit-scrollbar-track { background: transparent; }
-    .strip-scroll::-webkit-scrollbar-thumb { background: #8B2635; border-radius: 3px; }
+    .strip-scroll::-webkit-scrollbar { height: 8px; }
+    .strip-scroll::-webkit-scrollbar-track { background: rgba(139, 38, 53, 0.08); border-radius: 9999px; margin: 0 16px; }
+    .strip-scroll::-webkit-scrollbar-thumb { background: #8B2635; border-radius: 9999px; }
+    .strip-scroll::-webkit-scrollbar-thumb:hover { background: #6F1D2A; }
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -322,8 +324,8 @@
         </div>
 
         <!-- Right: Image -->
-        <div class="relative min-h-[380px] lg:min-h-full">
-          <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Ophthalmologist performing an eye exam" class="absolute inset-0 w-full h-full object-cover">
+        <div class="relative min-h-[380px] lg:min-h-full overflow-hidden bg-brand-dark">
+          <img src="images/h5.jpg" alt="Ophthalmologist performing an eye exam" class="absolute inset-0 w-full h-full object-cover object-center">
           <div class="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/20 to-transparent lg:from-brand-dark lg:via-transparent"></div>
           <!-- Floating badge -->
           <div class="absolute bottom-8 right-8 lg:bottom-12 lg:right-12 bg-white/95 dark:bg-[#1E293B]/95 backdrop-blur-sm rounded-2xl shadow-2xl px-6 py-5 flex items-center gap-4">
@@ -382,76 +384,111 @@
           </a>
         </div>
 
-        <!-- Scrollable strip -->
-        <div class="strip-scroll overflow-x-auto pb-4 -mx-4 px-4">
-          <div class="flex gap-6 min-w-max">
+        <!-- Services Grid: Contained & Responsive -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <!-- Card 1 -->
-            <div class="group w-[320px] shrink-0 rounded-2xl overflow-hidden bg-white dark:bg-[#1E293B] border border-gray-100 dark:border-white/5 shadow-lg hover:shadow-2xl transition-all duration-300">
-              <div class="relative h-48 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cataract Surgery" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                <span class="absolute top-4 left-4 bg-accent text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">Surgery</span>
-              </div>
-              <div class="p-6">
-                <h4 class="text-xl font-serif font-bold text-brand-dark dark:text-white mb-2">Cataract Surgery</h4>
-                <p class="text-brand-muted dark:text-gray-400 text-sm leading-relaxed mb-4">Bladeless, laser-assisted cataract removal with premium lens implants.</p>
-                <a href="services.html" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-accent hover:text-secondary transition-colors">Learn More <i class="fas fa-arrow-right text-[10px] rtl:rotate-180"></i></a>
-              </div>
+          <!-- Card 1: Cataract Surgery -->
+          <div class="group rounded-3xl overflow-hidden bg-white dark:bg-[#1E293B] border border-gray-100 dark:border-white/5 shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col">
+            <div class="relative h-60 overflow-hidden bg-gray-100 dark:bg-gray-800">
+              <img src="images/h1.jpg" alt="Cataract Surgery" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none"></div>
+              <span class="absolute top-4 start-4 bg-accent text-white text-[10px] font-bold uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md z-10">Surgery</span>
             </div>
-
-            <!-- Card 2 -->
-            <div class="group w-[320px] shrink-0 rounded-2xl overflow-hidden bg-white dark:bg-[#1E293B] border border-gray-100 dark:border-white/5 shadow-lg hover:shadow-2xl transition-all duration-300">
-              <div class="relative h-48 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="LASIK Vision Correction" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                <span class="absolute top-4 left-4 bg-accent text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">Laser</span>
-              </div>
-              <div class="p-6">
-                <h4 class="text-xl font-serif font-bold text-brand-dark dark:text-white mb-2">LASIK Vision Correction</h4>
-                <p class="text-brand-muted dark:text-gray-400 text-sm leading-relaxed mb-4">Permanent freedom from glasses and contacts with custom laser treatment.</p>
-                <a href="services.html" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-accent hover:text-secondary transition-colors">Learn More <i class="fas fa-arrow-right text-[10px] rtl:rotate-180"></i></a>
-              </div>
+            <div class="p-7 flex flex-col flex-grow">
+              <h4 class="text-2xl font-serif font-bold text-brand-dark dark:text-white mb-2 group-hover:text-accent transition-colors">Cataract Surgery</h4>
+              <p class="text-brand-muted dark:text-gray-400 text-sm leading-relaxed mb-6 flex-grow">Bladeless, laser-assisted cataract removal with premium lens implants.</p>
+              <a href="services.html" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-accent hover:text-secondary transition-colors mt-auto pt-4 border-t border-gray-100 dark:border-white/10">
+                <span>Learn More</span>
+                <i class="fas fa-arrow-right text-[10px] rtl:rotate-180"></i>
+              </a>
             </div>
-
-            <!-- Card 3 -->
-            <div class="group w-[320px] shrink-0 rounded-2xl overflow-hidden bg-white dark:bg-[#1E293B] border border-gray-100 dark:border-white/5 shadow-lg hover:shadow-2xl transition-all duration-300">
-              <div class="relative h-48 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pediatric Eye Care" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                <span class="absolute top-4 left-4 bg-accent text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">Pediatric</span>
-              </div>
-              <div class="p-6">
-                <h4 class="text-xl font-serif font-bold text-brand-dark dark:text-white mb-2">Pediatric Eye Care</h4>
-                <p class="text-brand-muted dark:text-gray-400 text-sm leading-relaxed mb-4">Gentle, specialized exams and treatments for children of all ages.</p>
-                <a href="services.html" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-accent hover:text-secondary transition-colors">Learn More <i class="fas fa-arrow-right text-[10px] rtl:rotate-180"></i></a>
-              </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="group w-[320px] shrink-0 rounded-2xl overflow-hidden bg-white dark:bg-[#1E293B] border border-gray-100 dark:border-white/5 shadow-lg hover:shadow-2xl transition-all duration-300">
-              <div class="relative h-48 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Retina Treatment" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                <span class="absolute top-4 left-4 bg-accent text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">Retina</span>
-              </div>
-              <div class="p-6">
-                <h4 class="text-xl font-serif font-bold text-brand-dark dark:text-white mb-2">Retina Treatment</h4>
-                <p class="text-brand-muted dark:text-gray-400 text-sm leading-relaxed mb-4">Advanced care for diabetic retinopathy and macular degeneration.</p>
-                <a href="services.html" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-accent hover:text-secondary transition-colors">Learn More <i class="fas fa-arrow-right text-[10px] rtl:rotate-180"></i></a>
-              </div>
-            </div>
-
-            <!-- Card 5 -->
-            <div class="group w-[320px] shrink-0 rounded-2xl overflow-hidden bg-white dark:bg-[#1E293B] border border-gray-100 dark:border-white/5 shadow-lg hover:shadow-2xl transition-all duration-300">
-              <div class="relative h-48 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Comprehensive Eye Exam" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                <span class="absolute top-4 left-4 bg-accent text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">Exam</span>
-              </div>
-              <div class="p-6">
-                <h4 class="text-xl font-serif font-bold text-brand-dark dark:text-white mb-2">Comprehensive Eye Exam</h4>
-                <p class="text-brand-muted dark:text-gray-400 text-sm leading-relaxed mb-4">Detailed vision and eye health assessments using modern diagnostics.</p>
-                <a href="services.html" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-accent hover:text-secondary transition-colors">Learn More <i class="fas fa-arrow-right text-[10px] rtl:rotate-180"></i></a>
-              </div>
-            </div>
-
           </div>
+
+          <!-- Card 2: LASIK Vision Correction -->
+          <div class="group rounded-3xl overflow-hidden bg-white dark:bg-[#1E293B] border border-gray-100 dark:border-white/5 shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col">
+            <div class="relative h-60 overflow-hidden bg-gray-100 dark:bg-gray-800">
+              <img src="images/h2.webp" alt="LASIK Vision Correction" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none"></div>
+              <span class="absolute top-4 start-4 bg-accent text-white text-[10px] font-bold uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md z-10">Laser</span>
+            </div>
+            <div class="p-7 flex flex-col flex-grow">
+              <h4 class="text-2xl font-serif font-bold text-brand-dark dark:text-white mb-2 group-hover:text-accent transition-colors">LASIK Vision Correction</h4>
+              <p class="text-brand-muted dark:text-gray-400 text-sm leading-relaxed mb-6 flex-grow">Permanent freedom from glasses and contacts with custom laser treatment.</p>
+              <a href="services.html" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-accent hover:text-secondary transition-colors mt-auto pt-4 border-t border-gray-100 dark:border-white/10">
+                <span>Learn More</span>
+                <i class="fas fa-arrow-right text-[10px] rtl:rotate-180"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3: Pediatric Eye Care -->
+          <div class="group rounded-3xl overflow-hidden bg-white dark:bg-[#1E293B] border border-gray-100 dark:border-white/5 shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col">
+            <div class="relative h-60 overflow-hidden bg-gray-100 dark:bg-gray-800">
+              <img src="images/h3.webp" alt="Pediatric Eye Care" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none"></div>
+              <span class="absolute top-4 start-4 bg-accent text-white text-[10px] font-bold uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md z-10">Pediatric</span>
+            </div>
+            <div class="p-7 flex flex-col flex-grow">
+              <h4 class="text-2xl font-serif font-bold text-brand-dark dark:text-white mb-2 group-hover:text-accent transition-colors">Pediatric Eye Care</h4>
+              <p class="text-brand-muted dark:text-gray-400 text-sm leading-relaxed mb-6 flex-grow">Gentle, specialized exams and treatments for children of all ages.</p>
+              <a href="services.html" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-accent hover:text-secondary transition-colors mt-auto pt-4 border-t border-gray-100 dark:border-white/10">
+                <span>Learn More</span>
+                <i class="fas fa-arrow-right text-[10px] rtl:rotate-180"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 4: Retina Treatment -->
+          <div class="group rounded-3xl overflow-hidden bg-white dark:bg-[#1E293B] border border-gray-100 dark:border-white/5 shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col">
+            <div class="relative h-60 overflow-hidden bg-gray-100 dark:bg-gray-800">
+              <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Retina Treatment" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none"></div>
+              <span class="absolute top-4 start-4 bg-accent text-white text-[10px] font-bold uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md z-10">Retina</span>
+            </div>
+            <div class="p-7 flex flex-col flex-grow">
+              <h4 class="text-2xl font-serif font-bold text-brand-dark dark:text-white mb-2 group-hover:text-accent transition-colors">Retina Treatment</h4>
+              <p class="text-brand-muted dark:text-gray-400 text-sm leading-relaxed mb-6 flex-grow">Advanced care for diabetic retinopathy, macular degeneration, and glaucoma.</p>
+              <a href="services.html" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-accent hover:text-secondary transition-colors mt-auto pt-4 border-t border-gray-100 dark:border-white/10">
+                <span>Learn More</span>
+                <i class="fas fa-arrow-right text-[10px] rtl:rotate-180"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 5: Comprehensive Eye Exam -->
+          <div class="group rounded-3xl overflow-hidden bg-white dark:bg-[#1E293B] border border-gray-100 dark:border-white/5 shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col">
+            <div class="relative h-60 overflow-hidden bg-gray-100 dark:bg-gray-800">
+              <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Comprehensive Eye Exam" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none"></div>
+              <span class="absolute top-4 start-4 bg-accent text-white text-[10px] font-bold uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md z-10">Exam</span>
+            </div>
+            <div class="p-7 flex flex-col flex-grow">
+              <h4 class="text-2xl font-serif font-bold text-brand-dark dark:text-white mb-2 group-hover:text-accent transition-colors">Comprehensive Eye Exam</h4>
+              <p class="text-brand-muted dark:text-gray-400 text-sm leading-relaxed mb-6 flex-grow">Detailed vision and eye health assessments using modern digital diagnostics.</p>
+              <a href="services.html" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-accent hover:text-secondary transition-colors mt-auto pt-4 border-t border-gray-100 dark:border-white/10">
+                <span>Learn More</span>
+                <i class="fas fa-arrow-right text-[10px] rtl:rotate-180"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 6: Cornea & Specialty Surgery -->
+          <div class="group rounded-3xl overflow-hidden bg-white dark:bg-[#1E293B] border border-gray-100 dark:border-white/5 shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col">
+            <div class="relative h-60 overflow-hidden bg-gray-100 dark:bg-gray-800">
+              <img src="images/h4.jpg" alt="Cornea & Specialty Surgery" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none"></div>
+              <span class="absolute top-4 start-4 bg-accent text-white text-[10px] font-bold uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md z-10">Specialty</span>
+            </div>
+            <div class="p-7 flex flex-col flex-grow">
+              <h4 class="text-2xl font-serif font-bold text-brand-dark dark:text-white mb-2 group-hover:text-accent transition-colors">Cornea & Specialty Care</h4>
+              <p class="text-brand-muted dark:text-gray-400 text-sm leading-relaxed mb-6 flex-grow">Custom corneal cross-linking, pterygium removal, and precision ocular therapy.</p>
+              <a href="services.html" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-accent hover:text-secondary transition-colors mt-auto pt-4 border-t border-gray-100 dark:border-white/10">
+                <span>Learn More</span>
+                <i class="fas fa-arrow-right text-[10px] rtl:rotate-180"></i>
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -475,13 +512,15 @@
           <!-- Left: Image collage -->
           <div class="relative">
             <div class="grid grid-cols-2 gap-4">
-              <div class="relative overflow-hidden rounded-2xl shadow-xl h-[240px]">
-                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Patient before treatment" class="w-full h-full object-cover">
-                <span class="absolute top-3 left-3 bg-brand-dark/80 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">Before</span>
+              <div class="relative overflow-hidden rounded-2xl shadow-xl h-[260px] bg-gray-100 dark:bg-gray-800">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Patient before treatment" class="w-full h-full object-cover object-top">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+                <span class="absolute top-3 start-3 bg-brand-dark/80 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">Before</span>
               </div>
-              <div class="relative overflow-hidden rounded-2xl shadow-xl h-[240px] mt-8">
-                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Patient after treatment" class="w-full h-full object-cover">
-                <span class="absolute top-3 left-3 bg-accent text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">After</span>
+              <div class="relative overflow-hidden rounded-2xl shadow-xl h-[260px] mt-8 bg-gray-100 dark:bg-gray-800">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Patient after treatment" class="w-full h-full object-cover object-top">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+                <span class="absolute top-3 start-3 bg-accent text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">After</span>
               </div>
             </div>
             <!-- Floating rating card -->
@@ -527,8 +566,8 @@
 
           <!-- Left: Image with overlay card -->
           <div class="relative order-2 lg:order-1">
-            <div class="relative overflow-hidden rounded-3xl shadow-2xl h-[420px] lg:h-[520px]">
-              <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Advanced eye diagnostic equipment" class="w-full h-full object-cover">
+            <div class="relative overflow-hidden rounded-3xl shadow-2xl h-[420px] lg:h-[520px] bg-gray-100 dark:bg-gray-800">
+              <img src="images/s2.jpg" alt="Advanced eye diagnostic equipment" class="w-full h-full object-cover object-center">
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
             </div>
             <!-- Overlay tech card -->
@@ -600,7 +639,7 @@
     <!-- SECTION 6: DARK CTA (full-width, minimal) -->
     <!-- ============================================ -->
     <section class="bg-brand-dark relative overflow-hidden">
-      <div class="absolute top-0 right-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center opacity-10"></div>
+      <div class="absolute top-0 right-0 w-full h-full bg-[url('images/h5.jpg')] bg-cover bg-center opacity-10"></div>
       <div class="absolute -top-24 -left-24 w-72 h-72 bg-accent/20 rounded-full blur-3xl"></div>
       <div class="absolute -bottom-24 -right-24 w-72 h-72 bg-accent/20 rounded-full blur-3xl"></div>
 
